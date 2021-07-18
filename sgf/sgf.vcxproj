@@ -22,9 +22,11 @@
     <ClInclude Include="src\SGF.h" />
     <ClInclude Include="src\SGF\api.h" />
     <ClInclude Include="src\SGF\Application.h" />
+    <ClInclude Include="src\SGF\Core\Logger.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\SGF\Application.cpp" />
+    <ClCompile Include="src\SGF\Core\Logger.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -140,6 +142,8 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor/spdlog/include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -148,6 +152,7 @@
     </Link>
     <PostBuildEvent>
       <Command>xcopy  "$(ProjectDir)src\*.h" "$(SolutionDir)sandbox\vendor\SGF\include" /e /i /y
+xcopy  "$(ProjectDir)vendor" "$(SolutionDir)sandbox\vendor" /e /i /y
 xcopy  "$(ProjectDir)bin\$(Platform)-$(Configuration)\*.lib" "$(SolutionDir)sandbox\vendor\SGF\lib\$(Platform)" /e /i /y
 xcopy  "$(ProjectDir)bin\$(Platform)-$(Configuration)\*.dll" "$(SolutionDir)sandbox\vendor\SGF\lib\$(Platform)" /e /i /y
 
@@ -167,6 +172,8 @@ xcopy "$(ProjectDir)vendor" "$(SolutionDir)vendor" /e /i /y</Command>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor/spdlog/include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -177,6 +184,7 @@ xcopy "$(ProjectDir)vendor" "$(SolutionDir)vendor" /e /i /y</Command>
     </Link>
     <PostBuildEvent>
       <Command>xcopy  "$(ProjectDir)src\*.h" "$(SolutionDir)sandbox\vendor\SGF\include" /e /i /y
+xcopy  "$(ProjectDir)vendor" "$(SolutionDir)sandbox\vendor" /e /i /y
 xcopy  "$(ProjectDir)bin\$(Platform)-$(Configuration)\*.lib" "$(SolutionDir)sandbox\vendor\SGF\lib\$(Platform)" /e /i /y
 xcopy  "$(ProjectDir)bin\$(Platform)-$(Configuration)\*.dll" "$(SolutionDir)sandbox\vendor\SGF\lib\$(Platform)" /e /i /y
 

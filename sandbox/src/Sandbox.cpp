@@ -1,8 +1,11 @@
-#include "SGF/Application.h"
+#include "SGF.h"
 
-class Sandbox : SGF::Application
+class Sandbox : public SGF::Application
 {
-	
+public:
+	Sandbox()
+	{
+	}
 };
 
 int main(int argc, char** argv)

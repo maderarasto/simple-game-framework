@@ -1,5 +1,11 @@
 # Hidden generated folders
 .vs
 
+sgf/bin
+sgf/int
+sandbox/bin
+sandbox/int
+sandbox/vendor
+
 # Solution file
 *.sln

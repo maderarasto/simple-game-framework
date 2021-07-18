@@ -2,8 +2,6 @@
 
 #include "api.h"
 
-#include <iostream>
-
 namespace SGF
 {
 	class SGF_API Application
