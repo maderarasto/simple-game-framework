@@ -10,10 +10,16 @@ public:
 
 int main(int argc, char** argv)
 {
-	Sandbox* sandbox = new Sandbox();
-
-	delete sandbox;
-	system("pause");
+	try {
+		Sandbox* sandbox = new Sandbox();
+		sandbox->Run();
+		delete sandbox;
+	}
+	catch (std::exception e)
+	{
+		APP_LOG_CRITICAL(e.what());
+		return -1;
+	}
 
 	return 0;
 }
