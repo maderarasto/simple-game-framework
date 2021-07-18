@@ -1,0 +1,9 @@
+# Hidden generated folders
+.vs
+
+# Project source files
+/sgf/
+/sandbox/
+
+# Solution file
+*.sln
