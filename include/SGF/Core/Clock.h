@@ -23,7 +23,12 @@ namespace SGF::Core
 			return elapsedTime;
 		}
 
+	public:
+		static const double OneSecond;
+
 	private:
 		Uint32 m_StartTime;
 	};
+
+	const double Clock::OneSecond = 1000.0;
 }

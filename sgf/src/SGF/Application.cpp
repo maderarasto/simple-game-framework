@@ -60,7 +60,10 @@ void Application::SetFrameRate(double frameRate)
 void Application::Run()
 {
 	Core::Clock clock;
+
+	Uint32 currentFrames = 0;
 	Uint32 timeSinceLastUpdate = 0;
+	Uint32 timeSinceLastFpsCount = 0;
 	
 	m_Running = true;
 
@@ -69,15 +72,29 @@ void Application::Run()
 		Uint32 elapsedTime = clock.Reset();
 
 		timeSinceLastUpdate += elapsedTime;
+		timeSinceLastFpsCount += elapsedTime;
 
 		while (timeSinceLastUpdate >= m_TimePerUpdate)
 		{
-			double deltaTime = timeSinceLastUpdate / 1000.0;
+			double deltaTime = timeSinceLastUpdate / Core::Clock::OneSecond;
+			
 			timeSinceLastUpdate -= m_TimePerUpdate;
+			currentFrames++;
 
 			_HandleEvents();
 			_Update(deltaTime);
 			_Render();
+
+
+		}
+
+		if (timeSinceLastFpsCount >= Core::Clock::OneSecond)
+		{
+			timeSinceLastFpsCount = 0;
+			m_FpsCount = currentFrames;
+			currentFrames = 0;
+
+			CORE_LOG_TRACE("FPS: {}", m_FpsCount);
 		}
 	}
 }
@@ -104,5 +121,16 @@ void Application::_Update(double deltaTime)
 void Application::_Render()
 {
 	SDL_RenderClear(m_Renderer.get());
+
+	TTF_Font* font = TTF_OpenFont("Roboto-Regular.ttf", 10);
+	SDL_Color fontColor = { 255, 255, 255 };
+
+	std::string text = "FPS: " + std::to_string(m_FpsCount);
+
+	SDL_Surface* textSurface = TTF_RenderText_Solid(font, text.c_str(), fontColor);
+	SDL_Texture* textTexture = SDL_CreateTextureFromSurface(m_Renderer.get(), textSurface);
+	SDL_Rect textRect = { 10, 10, 35, 12 };
+
+	SDL_RenderCopy(m_Renderer.get(), textTexture, NULL, &textRect);
 	SDL_RenderPresent(m_Renderer.get());
 }

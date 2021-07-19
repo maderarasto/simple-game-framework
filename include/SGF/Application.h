@@ -11,6 +11,7 @@ namespace SGF
 	{
 	public:
 		Application();
+		virtual ~Application();
 
 		void SetFrameRate(double frameRate);
 
@@ -30,6 +31,7 @@ namespace SGF
 		SDL_RendererPtr m_Renderer;
 
 		bool m_Running;
+		Uint32 m_FpsCount;
 		double m_TimePerUpdate;
 	};
 }
