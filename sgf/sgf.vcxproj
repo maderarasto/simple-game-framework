@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\SGF.h" />
+    <ClInclude Include="src\sgfpch.h" />
     <ClInclude Include="src\SGF\api.h" />
     <ClInclude Include="src\SGF\Application.h" />
     <ClInclude Include="src\SGF\Core\Clock.h" />
@@ -19,6 +20,10 @@
     <ClInclude Include="src\SGF\Structures.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\sgfpch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="src\SGF\Application.cpp" />
     <ClCompile Include="src\SGF\Core\Logger.cpp" />
   </ItemGroup>
@@ -71,8 +76,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SGF_PLATFORM_WINDOWS;SGF_BUILD_DLL</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>sgfpch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\SDL2_ttf\include;$(ProjectDir)vendor\SDL2_image\include;$(ProjectDir)vendor\SDL2\include;$(ProjectDir)vendor\spdlog\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -103,8 +108,8 @@ xcopy "$(ProjectDir)vendor" "$(SolutionDir)vendor" /e /i /y</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SGF_PLATFORM_WINDOWS;SGF_BUILD_DLL</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>sgfpch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\SDL2_ttf\include;$(ProjectDir)vendor\SDL2_image\include;$(ProjectDir)vendor\SDL2\include;$(ProjectDir)vendor\spdlog\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>

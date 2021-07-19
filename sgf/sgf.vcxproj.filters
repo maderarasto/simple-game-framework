@@ -33,12 +33,18 @@
     <ClInclude Include="src\SGF\Core\Clock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\sgfpch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\SGF\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\SGF\Core\Logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sgfpch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

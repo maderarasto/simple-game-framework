@@ -1,15 +1,12 @@
+#include "sgfpch.h"
 #include "Application.h"
 #include "SGF/Core/Logger.h"
 #include "SGF/Core/Clock.h"
 
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
-
 using namespace SGF;
 
 
-Application::Application()
+Application::Application(AppConfig* config)
 {
 	Core::Logger::Init();
 	
@@ -26,7 +23,7 @@ Application::Application()
 	CORE_LOG_TRACE("SDL2_TTF library successfully initialized.");
 
 	m_Window = SDL_WindowPtr(
-		SDL_CreateWindow("SDL App", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, NULL)
+		SDL_CreateWindow(config->title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, config->resolution_width, config->resolution_height, NULL)
 	);
 
 	if (!m_Window)
@@ -93,8 +90,6 @@ void Application::Run()
 			timeSinceLastFpsCount = 0;
 			m_FpsCount = currentFrames;
 			currentFrames = 0;
-
-			CORE_LOG_TRACE("FPS: {}", m_FpsCount);
 		}
 	}
 }

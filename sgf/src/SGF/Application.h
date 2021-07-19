@@ -3,14 +3,12 @@
 #include "api.h"
 #include "Structures.h"
 
-#include <memory>
-
 namespace SGF
 {
 	class SGF_API Application
 	{
 	public:
-		Application();
+		Application(AppConfig* config);
 		virtual ~Application();
 
 		void SetFrameRate(double frameRate);

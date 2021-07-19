@@ -2,6 +2,7 @@
 
 #include <SDL.h>
 #include <memory>
+#include <string>
 
 namespace SGF
 {
@@ -9,6 +10,13 @@ namespace SGF
 	{
 		void operator()(SDL_Window* window) { SDL_DestroyWindow(window); }
 		void operator()(SDL_Renderer* renderer) { SDL_DestroyRenderer(renderer); }
+	};
+
+	struct AppConfig
+	{
+		std::string title;
+		Uint32 resolution_width;
+		Uint32 resolution_height;
 	};
 
 	typedef std::unique_ptr<SDL_Window, SDL_Disposer> SDL_WindowPtr;

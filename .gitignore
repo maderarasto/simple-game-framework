@@ -6,6 +6,3 @@ sgf/int
 sandbox/bin
 sandbox/int
 sandbox/vendor
-
-# Solution file
-*.sln

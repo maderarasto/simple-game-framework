@@ -2,9 +2,6 @@
 
 #include "SGF/api.h"
 
-#include <spdlog/spdlog.h>
-#include <memory>
-
 namespace SGF::Core
 {
 	class SGF_API Logger
