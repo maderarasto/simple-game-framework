@@ -3,6 +3,9 @@
 #include "SGF/Core/Logger.h"
 #include "SGF/Core/Clock.h"
 
+#include "SGF/Assets/Asset.h"
+#include "SGF/Assets/AssetManager.h"
+
 using namespace SGF;
 
 
@@ -37,6 +40,8 @@ Application::Application(AppConfig* config)
 	if (!m_Renderer)
 		throw std::runtime_error("SDL renderer initialization failed!");
 	CORE_LOG_INFO("SDL renderer successfully initialized.");
+
+	m_FontAssets = std::make_unique<FontManager>();
 
 	SetFrameRate(60.0);
 }
@@ -117,15 +122,18 @@ void Application::_Render()
 {
 	SDL_RenderClear(m_Renderer.get());
 
-	TTF_Font* font = TTF_OpenFont("Roboto-Regular.ttf", 10);
+	Assets::Font& font = m_FontAssets->Get("ROBOTO_REGULAR_10");
 	SDL_Color fontColor = { 255, 255, 255 };
 
 	std::string text = "FPS: " + std::to_string(m_FpsCount);
 
-	SDL_Surface* textSurface = TTF_RenderText_Solid(font, text.c_str(), fontColor);
+	SDL_Surface* textSurface = TTF_RenderText_Solid(font.GetPointer(), text.c_str(), fontColor);
 	SDL_Texture* textTexture = SDL_CreateTextureFromSurface(m_Renderer.get(), textSurface);
 	SDL_Rect textRect = { 10, 10, 35, 12 };
 
 	SDL_RenderCopy(m_Renderer.get(), textTexture, NULL, &textRect);
 	SDL_RenderPresent(m_Renderer.get());
+
+	SDL_DestroyTexture(textTexture);
+	SDL_FreeSurface(textSurface);
 }

@@ -24,6 +24,9 @@ namespace SGF
 	public:
 
 		
+	protected:
+		FontManagerPtr m_FontAssets;
+
 	private:
 		SDL_WindowPtr m_Window;
 		SDL_RendererPtr m_Renderer;

@@ -1,11 +1,14 @@
 #include "sgfpch.h"
 #include "SGF.h"
 
+#include "SGF/Assets/AssetManager.h"
+
 class Sandbox : public SGF::Application
 {
 public:
 	Sandbox(SGF::AppConfig* config) : SGF::Application(config)
 	{
+		m_FontAssets->Load("Roboto-Regular.ttf", "ROBOTO_REGULAR_10", 10);
 	}
 };
 

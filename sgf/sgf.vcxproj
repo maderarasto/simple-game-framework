@@ -15,6 +15,8 @@
     <ClInclude Include="src\sgfpch.h" />
     <ClInclude Include="src\SGF\api.h" />
     <ClInclude Include="src\SGF\Application.h" />
+    <ClInclude Include="src\SGF\Assets\Asset.h" />
+    <ClInclude Include="src\SGF\Assets\AssetManager.h" />
     <ClInclude Include="src\SGF\Core\Clock.h" />
     <ClInclude Include="src\SGF\Core\Logger.h" />
     <ClInclude Include="src\SGF\Structures.h" />
@@ -25,7 +27,11 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\SGF\Application.cpp" />
+    <ClCompile Include="src\SGF\Assets\AssetManager.cpp" />
     <ClCompile Include="src\SGF\Core\Logger.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Roboto-Regular.ttf" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -80,6 +86,7 @@
       <PrecompiledHeaderFile>sgfpch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\SDL2_ttf\include;$(ProjectDir)vendor\SDL2_image\include;$(ProjectDir)vendor\SDL2\include;$(ProjectDir)vendor\spdlog\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -112,6 +119,7 @@ xcopy "$(ProjectDir)vendor" "$(SolutionDir)vendor" /e /i /y</Command>
       <PrecompiledHeaderFile>sgfpch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\SDL2_ttf\include;$(ProjectDir)vendor\SDL2_image\include;$(ProjectDir)vendor\SDL2\include;$(ProjectDir)vendor\spdlog\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
