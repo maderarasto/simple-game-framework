@@ -96,15 +96,10 @@
       <AdditionalLibraryDirectories>$(ProjectDir)vendor\SDL2\lib\$(Platform);$(ProjectDir)vendor\SDL2_ttf\lib\$(Platform);$(ProjectDir)vendor\SDL2_image\lib\$(Platform)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy  "$(ProjectDir)src\*.h" "$(SolutionDir)sandbox\vendor\SGF\include" /e /i /y
-xcopy  "$(ProjectDir)vendor" "$(SolutionDir)sandbox\vendor" /e /i /y
-xcopy  "$(ProjectDir)bin\$(Platform)-$(Configuration)\*.lib" "$(SolutionDir)sandbox\vendor\SGF\lib\$(Platform)" /e /i /y
-xcopy  "$(ProjectDir)bin\$(Platform)-$(Configuration)\*.dll" "$(SolutionDir)sandbox\vendor\SGF\lib\$(Platform)" /e /i /y
-
-xcopy "$(ProjectDir)bin\$(Platform)-Release\*.lib" "$(SolutionDir)lib\$(Platform)" /e /i /y
-xcopy "$(ProjectDir)bin\$(Platform)-Release\*.dll" "$(SolutionDir)lib\$(Platform)" /e /i /y
-xcopy "$(ProjectDir)src\*.h" "$(SolutionDir)include" /e /i /y
-xcopy "$(ProjectDir)vendor" "$(SolutionDir)vendor" /e /i /y</Command>
+      <Command>xcopy "$(ProjectDir)bin\$(Platform)-Release\*.lib" "$(SolutionDir)out\lib\$(Platform)" /e /i /y
+xcopy "$(ProjectDir)bin\$(Platform)-Release\*.dll" "$(SolutionDir)out\lib\$(Platform)" /e /i /y
+xcopy "$(ProjectDir)src\*.h" "$(SolutionDir)out\include" /e /i /y
+xcopy "$(ProjectDir)vendor" "$(SolutionDir)out\vendor" /e /i /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -131,15 +126,10 @@ xcopy "$(ProjectDir)vendor" "$(SolutionDir)vendor" /e /i /y</Command>
       <AdditionalLibraryDirectories>$(ProjectDir)vendor\SDL2\lib\$(Platform);$(ProjectDir)vendor\SDL2_ttf\lib\$(Platform);$(ProjectDir)vendor\SDL2_image\lib\$(Platform)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy  "$(ProjectDir)src\*.h" "$(SolutionDir)sandbox\vendor\SGF\include" /e /i /y
-xcopy  "$(ProjectDir)vendor" "$(SolutionDir)sandbox\vendor" /e /i /y
-xcopy  "$(ProjectDir)bin\$(Platform)-$(Configuration)\*.lib" "$(SolutionDir)sandbox\vendor\SGF\lib\$(Platform)" /e /i /y
-xcopy  "$(ProjectDir)bin\$(Platform)-$(Configuration)\*.dll" "$(SolutionDir)sandbox\vendor\SGF\lib\$(Platform)" /e /i /y
-
-xcopy "$(ProjectDir)bin\$(Platform)-Release\*.lib" "$(SolutionDir)lib\$(Platform)" /e /i /y
-xcopy "$(ProjectDir)bin\$(Platform)-Release\*.dll" "$(SolutionDir)lib\$(Platform)" /e /i /y
-xcopy "$(ProjectDir)src\*.h" "$(SolutionDir)include" /e /i /y
-xcopy "$(ProjectDir)vendor" "$(SolutionDir)vendor" /e /i /y</Command>
+      <Command>xcopy "$(ProjectDir)bin\$(Platform)-Release\*.lib" "$(SolutionDir)out\lib\$(Platform)" /e /i /y
+xcopy "$(ProjectDir)bin\$(Platform)-Release\*.dll" "$(SolutionDir)out\lib\$(Platform)" /e /i /y
+xcopy "$(ProjectDir)src\*.h" "$(SolutionDir)out\include" /e /i /y
+xcopy "$(ProjectDir)vendor" "$(SolutionDir)out\vendor" /e /i /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sgf", "sgf\sgf.vcxproj", "{3E6CACE5-3FF7-4ED9-948B-B22D2B4CC0E9}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sandbox", "sandbox\sandbox.vcxproj", "{499F649D-F6E1-4A01-9782-C2649B7D72F5}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -17,10 +15,6 @@ Global
 		{3E6CACE5-3FF7-4ED9-948B-B22D2B4CC0E9}.Debug|x64.Build.0 = Debug|x64
 		{3E6CACE5-3FF7-4ED9-948B-B22D2B4CC0E9}.Release|x64.ActiveCfg = Release|x64
 		{3E6CACE5-3FF7-4ED9-948B-B22D2B4CC0E9}.Release|x64.Build.0 = Release|x64
-		{499F649D-F6E1-4A01-9782-C2649B7D72F5}.Debug|x64.ActiveCfg = Debug|x64
-		{499F649D-F6E1-4A01-9782-C2649B7D72F5}.Debug|x64.Build.0 = Debug|x64
-		{499F649D-F6E1-4A01-9782-C2649B7D72F5}.Release|x64.ActiveCfg = Release|x64
-		{499F649D-F6E1-4A01-9782-C2649B7D72F5}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

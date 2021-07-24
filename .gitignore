@@ -1,8 +1,11 @@
 # Hidden generated folders
 .vs
 
+# Project files
+out
 sgf/bin
 sgf/int
 sandbox/bin
 sandbox/int
+sandbox/src
 sandbox/vendor
