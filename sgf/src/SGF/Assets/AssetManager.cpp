@@ -33,6 +33,7 @@ template<class Resource>
 void AssetManager<Resource>::Load(const std::string& fileName, const std::string& key)
 {
 	std::unique_ptr<Resource> resource = std::make_unique<Resource>();
+	CORE_LOG_INFO("Filename: {}", fileName);
 
 	if (!resource->LoadFromFile(fileName))
 		CORE_LOG_ERROR("Could not load an asset from the file with name \"{}\"!", fileName);
@@ -46,6 +47,7 @@ template<typename Parameter>
 void AssetManager<Resource>::Load(const std::string& fileName, const std::string& key, const Parameter& parameter)
 {
 	std::unique_ptr<Resource> resource = std::make_unique<Resource>(parameter);
+	CORE_LOG_INFO("Filename: {}", fileName);
 
 	if (!resource->LoadFromFile(fileName))
 		CORE_LOG_ERROR("Could not load an asset from the file with name \"{}\"!", fileName);

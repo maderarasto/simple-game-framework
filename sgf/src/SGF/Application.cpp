@@ -25,6 +25,8 @@ Application::Application(AppConfig* config)
 		throw std::runtime_error("SDL2_TTF library initialization failed!");
 	CORE_LOG_TRACE("SDL2_TTF library successfully initialized.");
 
+	CORE_LOG_INFO("Resolution: {}x{}", config->resolution_width, config->resolution_height);
+
 	m_Window = SDL_WindowPtr(
 		SDL_CreateWindow(config->title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, config->resolution_width, config->resolution_height, NULL)
 	);
@@ -44,6 +46,8 @@ Application::Application(AppConfig* config)
 	m_FontAssets = std::make_unique<FontManager>();
 
 	SetFrameRate(60.0);
+
+	CORE_LOG_INFO("INFO");
 }
 
 

@@ -67,6 +67,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)vendor\SDL2_ttf\include;$(ProjectDir)vendor\SDL2_image\include;$(ProjectDir)vendor\SDL2\include;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\SGF\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -95,6 +96,7 @@ xcopy "$(ProjectDir)vendor\SDL2_ttf\lib\$(Platform)\*.dll" "$(OutDir)" /e /i /y<
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)vendor\SDL2_ttf\include;$(ProjectDir)vendor\SDL2_image\include;$(ProjectDir)vendor\SDL2\include;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\SGF\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

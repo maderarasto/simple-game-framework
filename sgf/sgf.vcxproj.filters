@@ -42,6 +42,15 @@
     <ClInclude Include="src\SGF\Assets\AssetManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\SGF\States\AbstractState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SGF\States\StateStack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SGF\States\Structures.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\SGF\Application.cpp">
@@ -54,6 +63,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\SGF\Assets\AssetManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SGF\States\AbstractState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SGF\States\StateStack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
