@@ -16,6 +16,10 @@ namespace SGF
 		template<class Resource>
 		class AssetManager;
 	}
+
+	namespace States {
+		class StateStack;
+	}
 	
 	struct SDL_Disposer
 	{
@@ -44,4 +48,5 @@ namespace SGF
 
 	typedef std::unique_ptr<ImageManager> ImageManagerPtr;
 	typedef std::unique_ptr<FontManager> FontManagerPtr;
+	typedef std::unique_ptr<States::StateStack> StateStackPtr;
 }

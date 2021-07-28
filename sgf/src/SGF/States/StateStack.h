@@ -1,14 +1,20 @@
 #pragma once
 
+#include "SGF/api.h"
 #include "Structures.h"
 
 namespace SGF::States
 {
-	class StateStack
+	class SGF_API StateStack
 	{
 	public:
 		StateStack(Context context);
 		~StateStack();
+
+		StateStack(const StateStack&) = delete;
+		StateStack& operator=(const StateStack&) = delete;
+
+		inline bool IsEmpty() const { return m_States.size() == 0; }
 
 		void Push(const std::string& stateName);
 		void Pop();

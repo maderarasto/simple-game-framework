@@ -18,8 +18,16 @@
     <ClCompile Include="src\Sandbox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\States\SplashScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Font Include="Roboto-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\States\SplashScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

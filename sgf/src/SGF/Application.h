@@ -25,6 +25,8 @@ namespace SGF
 
 		
 	protected:
+		StateStackPtr m_StateStack;
+		ImageManagerPtr m_ImageAssets;
 		FontManagerPtr m_FontAssets;
 
 	private:

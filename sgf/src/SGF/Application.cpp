@@ -5,6 +5,7 @@
 
 #include "SGF/Assets/Asset.h"
 #include "SGF/Assets/AssetManager.h"
+#include "SGF/States/StateStack.h"
 
 using namespace SGF;
 
@@ -43,7 +44,9 @@ Application::Application(AppConfig* config)
 		throw std::runtime_error("SDL renderer initialization failed!");
 	CORE_LOG_INFO("SDL renderer successfully initialized.");
 
+	m_ImageAssets = std::make_unique<ImageManager>();
 	m_FontAssets = std::make_unique<FontManager>();
+	m_StateStack = std::make_unique<States::StateStack>(States::Context(m_Renderer.get(), m_ImageAssets.get(), m_FontAssets.get()));
 
 	SetFrameRate(60.0);
 
@@ -110,7 +113,9 @@ void Application::_HandleEvents()
 
 	while (SDL_PollEvent(&event) != NULL)
 	{
-		if (event.type == SDL_QUIT)
+		m_StateStack->HandleEvent(event);
+		
+		if (m_StateStack->IsEmpty() || event.type == SDL_QUIT)
 			m_Running = false;
 	}
 }
@@ -118,26 +123,13 @@ void Application::_HandleEvents()
 
 void Application::_Update(double deltaTime)
 {
-
+	m_StateStack->Update(deltaTime);
 }
 
 
 void Application::_Render()
 {
 	SDL_RenderClear(m_Renderer.get());
-
-	Assets::Font& font = m_FontAssets->Get("ROBOTO_REGULAR_10");
-	SDL_Color fontColor = { 255, 255, 255 };
-
-	std::string text = "FPS: " + std::to_string(m_FpsCount);
-
-	SDL_Surface* textSurface = TTF_RenderText_Solid(font.GetPointer(), text.c_str(), fontColor);
-	SDL_Texture* textTexture = SDL_CreateTextureFromSurface(m_Renderer.get(), textSurface);
-	SDL_Rect textRect = { 10, 10, 35, 12 };
-
-	SDL_RenderCopy(m_Renderer.get(), textTexture, NULL, &textRect);
+	m_StateStack->Render();
 	SDL_RenderPresent(m_Renderer.get());
-
-	SDL_DestroyTexture(textTexture);
-	SDL_FreeSurface(textSurface);
 }

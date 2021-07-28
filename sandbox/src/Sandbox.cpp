@@ -1,14 +1,20 @@
 #include "sgfpch.h"
 #include "SGF.h"
 
+#include "SGF/States/StateStack.h"
 #include "SGF/Assets/AssetManager.h"
+
+#include "States/SplashScreen.h"
 
 class Sandbox : public SGF::Application
 {
 public:
 	Sandbox(SGF::AppConfig* config) : SGF::Application(config)
 	{
+		m_StateStack->RegisterState<States::SplashScreen>("SplashScreen");
 		m_FontAssets->Load("Roboto-Regular.ttf", "ROBOTO_REGULAR_10", 10);
+
+		m_StateStack->Push("SplashScreen");
 	}
 };
 
