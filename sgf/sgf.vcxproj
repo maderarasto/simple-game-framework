@@ -19,6 +19,9 @@
     <ClInclude Include="src\SGF\Assets\AssetManager.h" />
     <ClInclude Include="src\SGF\Core\Clock.h" />
     <ClInclude Include="src\SGF\Core\Logger.h" />
+    <ClInclude Include="src\SGF\States\AbstractState.h" />
+    <ClInclude Include="src\SGF\States\StateStack.h" />
+    <ClInclude Include="src\SGF\States\Structures.h" />
     <ClInclude Include="src\SGF\Structures.h" />
   </ItemGroup>
   <ItemGroup>
@@ -29,6 +32,8 @@
     <ClCompile Include="src\SGF\Application.cpp" />
     <ClCompile Include="src\SGF\Assets\AssetManager.cpp" />
     <ClCompile Include="src\SGF\Core\Logger.cpp" />
+    <ClCompile Include="src\SGF\States\AbstractState.cpp" />
+    <ClCompile Include="src\SGF\States\StateStack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Roboto-Regular.ttf" />
