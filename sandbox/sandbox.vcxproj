@@ -12,12 +12,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Sandbox.cpp" />
+    <ClCompile Include="src\States\GameState.cpp" />
     <ClCompile Include="src\States\SplashScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Roboto-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\States\GameState.h" />
     <ClInclude Include="src\States\SplashScreen.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -23,6 +23,11 @@ SplashScreen::~SplashScreen()
 
 bool SplashScreen::HandleEvent(SDL_Event& event)
 {
+	if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_RETURN)
+	{
+		RequestPushState("GameState");
+	}
+	
 	return true;
 }
 

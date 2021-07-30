@@ -3,8 +3,11 @@
 
 #include "SGF/States/StateStack.h"
 #include "SGF/Assets/AssetManager.h"
+#include "SGF/Core/Vector2.h"
 
 #include "States/SplashScreen.h"
+#include "States/GameState.h"
+
 
 class Sandbox : public SGF::Application
 {
@@ -12,6 +15,7 @@ public:
 	Sandbox(SGF::AppConfig* config) : SGF::Application(config)
 	{
 		m_StateStack->RegisterState<States::SplashScreen>("SplashScreen");
+		m_StateStack->RegisterState<States::GameState>("GameState");
 		m_FontAssets->Load("Roboto-Regular.ttf", "ROBOTO_REGULAR_10", 10);
 
 		m_StateStack->Push("SplashScreen");
