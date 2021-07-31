@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SGF/States/AbstractState.h"
+#include "SGF/EntitySystem/Mob.h"
 
 namespace States
 {
@@ -13,5 +14,8 @@ namespace States
 		bool HandleEvent(SDL_Event& event) override;
 		bool Update(double deltaTime) override;
 		void Render() override;
+
+	private:
+		SGF::EntitySystem::MobPtr m_Mob;
 	};
 }

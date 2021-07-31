@@ -51,10 +51,19 @@
     <ClInclude Include="src\SGF\States\Structures.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\SGF\Entities\AbstractEntity.h">
+    <ClInclude Include="src\SGF\EntitySystem\AbstractEntity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\SGF\Core\Vector2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SGF\EntitySystem\Sprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SGF\EntitySystem\Structures.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SGF\EntitySystem\Mob.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -77,10 +86,16 @@
     <ClCompile Include="src\SGF\States\StateStack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\SGF\Entities\AbstractEntity.cpp">
+    <ClCompile Include="src\SGF\EntitySystem\AbstractEntity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\SGF\Core\Vector2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SGF\EntitySystem\Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SGF\EntitySystem\Mob.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

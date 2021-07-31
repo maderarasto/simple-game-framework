@@ -20,7 +20,10 @@
     <ClInclude Include="src\SGF\Core\Clock.h" />
     <ClInclude Include="src\SGF\Core\Logger.h" />
     <ClInclude Include="src\SGF\Core\Vector2.h" />
-    <ClInclude Include="src\SGF\Entities\AbstractEntity.h" />
+    <ClInclude Include="src\SGF\EntitySystem\AbstractEntity.h" />
+    <ClInclude Include="src\SGF\EntitySystem\Mob.h" />
+    <ClInclude Include="src\SGF\EntitySystem\Sprite.h" />
+    <ClInclude Include="src\SGF\EntitySystem\Structures.h" />
     <ClInclude Include="src\SGF\States\AbstractState.h" />
     <ClInclude Include="src\SGF\States\StateStack.h" />
     <ClInclude Include="src\SGF\States\Structures.h" />
@@ -35,7 +38,9 @@
     <ClCompile Include="src\SGF\Assets\AssetManager.cpp" />
     <ClCompile Include="src\SGF\Core\Logger.cpp" />
     <ClCompile Include="src\SGF\Core\Vector2.cpp" />
-    <ClCompile Include="src\SGF\Entities\AbstractEntity.cpp" />
+    <ClCompile Include="src\SGF\EntitySystem\AbstractEntity.cpp" />
+    <ClCompile Include="src\SGF\EntitySystem\Mob.cpp" />
+    <ClCompile Include="src\SGF\EntitySystem\Sprite.cpp" />
     <ClCompile Include="src\SGF\States\AbstractState.cpp" />
     <ClCompile Include="src\SGF\States\StateStack.cpp" />
   </ItemGroup>

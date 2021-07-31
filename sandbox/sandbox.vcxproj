@@ -22,6 +22,9 @@
     <ClInclude Include="src\States\GameState.h" />
     <ClInclude Include="src\States\SplashScreen.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\images\player.png" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
