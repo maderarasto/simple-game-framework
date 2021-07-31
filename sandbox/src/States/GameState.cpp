@@ -11,7 +11,10 @@ GameState::GameState(SGF::States::StateStack& stack, SGF::States::Context contex
 	AbstractState(stack, context)
 {
 	SGF::Assets::Image& image = context.imageAssets->Get("PLAYER");
+	SGF::Assets::Font& font = context.fontAssets->Get("ROBOTO_REGULAR_10");
+
 	m_Mob = std::make_unique<SGF::EntitySystem::Mob>(Vector2f(480, 648), Vector2f(64, 64), image);
+	m_Text = std::make_unique<SGF::UI::Text>(Vector2i(50, 50), font, "Simple Game Framework");
 }
 
 
@@ -44,4 +47,5 @@ void GameState::Render()
 	SDL_RenderClear(renderer);
 
 	m_Mob->Render(renderer);
+	m_Text->Render(renderer);
 }

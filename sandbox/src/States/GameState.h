@@ -2,6 +2,7 @@
 
 #include "SGF/States/AbstractState.h"
 #include "SGF/EntitySystem/Mob.h"
+#include "SGF/UI/Text.h"
 
 namespace States
 {
@@ -17,5 +18,6 @@ namespace States
 
 	private:
 		SGF::EntitySystem::MobPtr m_Mob;
+		SGF::UI::TextPtr m_Text;
 	};
 }

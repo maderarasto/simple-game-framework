@@ -66,6 +66,15 @@
     <ClInclude Include="src\SGF\EntitySystem\Mob.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\SGF\UI\UIComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SGF\UI\Structures.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SGF\UI\Text.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\SGF\Application.cpp">
@@ -96,6 +105,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\SGF\EntitySystem\Mob.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SGF\UI\UIComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SGF\UI\Text.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
