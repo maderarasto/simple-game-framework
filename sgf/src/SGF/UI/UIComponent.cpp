@@ -6,9 +6,9 @@
 using namespace SGF::UI;
 
 
-UIComponent::UIComponent(Vector2i position, Vector2i size) :
-	m_Position(position),
-	m_Size(size)
+UIComponent::UIComponent(const ComponentProperties& properties) :
+	m_Position(properties.position),
+	m_Size(properties.size)
 {
 	_UpdateBorder();
 }

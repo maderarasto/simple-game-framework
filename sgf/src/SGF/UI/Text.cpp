@@ -6,12 +6,14 @@
 using namespace SGF::UI;
 
 
-Text::Text(Vector2i position, Assets::Font& font, std::string text) :
-	UIComponent(position)
+Text::Text(const ComponentProperties& properties) :
+	UIComponent(properties)
 {
-	m_Font = &font;
-	m_Color = { 0, 0, 0 };
-	m_Text = text;
+	auto props = static_cast<const TextProperties&>(properties);
+	
+	m_Font = props.font;
+	m_Color = props.color;
+	m_Text = props.text;
 
 	_ResolveTextSize();
 }

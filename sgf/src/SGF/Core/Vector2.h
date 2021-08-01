@@ -8,6 +8,7 @@ namespace SGF::Core
 	struct SGF_API Vector2
 	{
 	public:
+		Vector2();
 		Vector2(T x, T y);
 		
 		Vector2(const Vector2<T>& other);

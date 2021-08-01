@@ -9,7 +9,7 @@ namespace SGF::UI
 	class SGF_API Text : public UIComponent
 	{
 	public:
-		Text(Vector2i position, Assets::Font& font, std::string text);
+		Text(const ComponentProperties& props);
 		~Text();
 
 		Assets::Font& GetFont() const;

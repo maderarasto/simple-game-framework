@@ -8,6 +8,14 @@ double Vector2<T>::CalculateValue(const Vector2<T>& vector);
 
 
 template<typename T>
+Vector2<T>::Vector2()
+{
+	this->x = 0;
+	this->y = 0;
+}
+
+
+template<typename T>
 Vector2<T>::Vector2(T x, T y)
 {
 	this->x = x;
@@ -187,6 +195,7 @@ double Vector2<T>::CalculateValue(const Vector2<T>& vector)
 	return sqrt(powX + powY);
 }
 
+template SGF_API Vector2<int>::Vector2();
 template SGF_API Vector2<int>::Vector2(int x, int y);
 template SGF_API Vector2<int>::Vector2(const Vector2<int>& other);
 template SGF_API Vector2<int>& Vector2<int>::operator=(const Vector2<int>& other);
@@ -209,6 +218,7 @@ template SGF_API Vector2<int>& Vector2<int>::operator/=(int number);
 template SGF_API Vector2<int>& Vector2<int>::operator+=(const Vector2<int>& other);
 template SGF_API Vector2<int>& Vector2<int>::operator-=(const Vector2<int>& other);
 
+template SGF_API Vector2<float>::Vector2();
 template SGF_API Vector2<float>::Vector2(float x, float y);
 template SGF_API Vector2<float>::Vector2(const Vector2<float>& other);
 template SGF_API Vector2<float>& Vector2<float>::operator=(const Vector2<float>& other);

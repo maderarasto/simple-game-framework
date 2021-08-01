@@ -15,9 +15,20 @@ GameState::GameState(SGF::States::StateStack& stack, SGF::States::Context contex
 	SGF::Assets::Font& font = context.fontAssets->Get("ROBOTO_REGULAR_10");
 
 	m_Mob = std::make_unique<SGF::EntitySystem::Mob>(Vector2f(480, 648), Vector2f(64, 64), image);
+	
+	auto textProperties = [&]()
+	{
+		SGF::UI::TextProperties props;
 
-	SGF::UI::TextPtr text = std::make_unique<SGF::UI::Text>(Vector2i(512, 384), font, "Simple Game Framework");
-	text->SetColor({ 255, 255, 255 });
+		props.position = Vector2i(100, 100);
+		props.font = &font;
+		props.color = { 255, 255, 255 };
+		props.text = "Simple Game Framework";
+
+		return props;
+	}();
+
+	m_Text = std::make_unique<SGF::UI::Text>(textProperties);
 }
 
 
@@ -47,4 +58,5 @@ void GameState::Render()
 	SDL_Renderer* renderer = GetContext().renderer;
 
 	m_Canvas->Render(renderer);
+	m_Text->Render(renderer);
 }

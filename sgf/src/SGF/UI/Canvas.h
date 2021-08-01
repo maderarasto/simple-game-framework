@@ -17,7 +17,8 @@ namespace SGF::UI
 		SDL_Color GetBackgroundColor() const;
 		void SetBackgroundColor(SDL_Color color);
 
-		void AddComponent(UIComponentPtr component);
+		template<typename Component>
+		void AddComponent();
 		void RemoveComponentAt(Uint32 index);
 
 		void HandleEvent(SDL_Event& event);
@@ -32,4 +33,9 @@ namespace SGF::UI
 
 		std::vector<UIComponentPtr> m_Components;
 	};
+
+	template<typename Component>
+	void Canvas::AddComponent()
+	{
+	}
 }

@@ -3,6 +3,8 @@
 
 #include "UIComponent.h"
 
+#include "SGF/Assets/Asset.h"
+
 using namespace SGF::UI;
 
 
@@ -29,12 +31,6 @@ SDL_Color Canvas::GetBackgroundColor() const
 void Canvas::SetBackgroundColor(SDL_Color color)
 {
 	m_BackgroundColor = color;
-}
-
-
-void Canvas::AddComponent(UIComponentPtr component)
-{
-	m_Components.push_back(std::move(component));
 }
 
 

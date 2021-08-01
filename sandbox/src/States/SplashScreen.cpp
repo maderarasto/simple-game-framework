@@ -13,8 +13,8 @@ SplashScreen::SplashScreen(SGF::States::StateStack& stack, SGF::States::Context 
 {
 	SGF::Assets::Font& font = context.fontAssets->Get("ROBOTO_REGULAR_18");
 
-	m_Title = std::make_unique<SGF::UI::Text>(Vector2i(512, 384), font, "Sandbox");
-	m_Title->SetColor({ 255, 255, 255 });
+	/*m_Title = std::make_unique<SGF::UI::Text>(Vector2i(512, 384), font, "Sandbox");
+	m_Title->SetColor({ 255, 255, 255 });*/
 }
 
 
@@ -46,5 +46,5 @@ void SplashScreen::Render()
 {
 	SDL_Renderer* renderer = GetContext().renderer;
 	
-	m_Title->Render(renderer);
+	//m_Title->Render(renderer);
 }

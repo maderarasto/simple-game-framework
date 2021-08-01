@@ -8,7 +8,7 @@ namespace SGF::UI
 	class SGF_API UIComponent
 	{
 	public:
-		UIComponent(Vector2i position, Vector2i size = Vector2i(30, 30));
+		UIComponent(const ComponentProperties& properties);
 		virtual ~UIComponent();
 
 		inline SDL_Rect GetBorder() const { return m_Border; };

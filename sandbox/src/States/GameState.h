@@ -18,5 +18,6 @@ namespace States
 
 	private:
 		SGF::EntitySystem::MobPtr m_Mob;
+		SGF::UI::TextPtr m_Text;
 	};
 }
