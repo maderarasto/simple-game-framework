@@ -15,9 +15,5 @@ namespace States
 		bool HandleEvent(SDL_Event& event) override;
 		bool Update(double deltaTime) override;
 		void Render() override;
-
-	private:
-		SGF::EntitySystem::MobPtr m_Mob;
-		SGF::UI::TextPtr m_Text;
 	};
 }

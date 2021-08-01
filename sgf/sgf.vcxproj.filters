@@ -120,7 +120,4 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <Font Include="Roboto-Regular.ttf" />
-  </ItemGroup>
 </Project>

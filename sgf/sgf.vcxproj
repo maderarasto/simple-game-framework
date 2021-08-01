@@ -51,9 +51,6 @@
     <ClCompile Include="src\SGF\UI\Text.cpp" />
     <ClCompile Include="src\SGF\UI\UIComponent.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <Font Include="Roboto-Regular.ttf" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

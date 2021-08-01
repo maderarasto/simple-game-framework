@@ -13,6 +13,27 @@ namespace SGF
 	{
 		class UIComponent;
 		class Text;
+		class Canvas;
+
+		enum class Alignment
+		{
+			None = 0,
+			Start, Center, End
+		};
+
+		struct Anchor
+		{
+			Anchor(Alignment horizontal, Alignment vertical, Vector2i indent=Vector2i())
+			{
+				this->horizontal = horizontal;
+				this->vertical = vertical;
+				this->indent = indent;
+			}
+			
+			Alignment horizontal;
+			Alignment vertical;
+			Vector2i indent;
+		};
 
 		struct ComponentProperties
 		{	
@@ -35,3 +56,7 @@ namespace SGF
 		typedef std::unique_ptr<Text> TextPtr;
 	}
 }
+
+typedef SGF::UI::Alignment SGF_Alignment;
+
+#define NO_ANCHOR { Alignment::None, Alignment::None }

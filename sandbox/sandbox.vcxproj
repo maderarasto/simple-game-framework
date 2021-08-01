@@ -16,7 +16,7 @@
     <ClCompile Include="src\States\SplashScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Font Include="Roboto-Regular.ttf" />
+    <Font Include="assets\fonts\Roboto-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\States\GameState.h" />
