@@ -3,6 +3,7 @@
 #include "SGF/States/AbstractState.h"
 #include "SGF/EntitySystem/Mob.h"
 #include "SGF/UI/Text.h"
+#include "SGF/UI/Button.h"
 
 namespace States
 {

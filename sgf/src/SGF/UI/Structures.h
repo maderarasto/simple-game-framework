@@ -13,12 +13,18 @@ namespace SGF
 	{
 		class UIComponent;
 		class Text;
+		class Button;
 		class Canvas;
 
 		enum class Alignment
 		{
 			None = 0,
 			Start, Center, End
+		};
+
+		enum class ButtonState
+		{
+			Idle, Highlighted, Pressed
 		};
 
 		struct Anchor
@@ -48,12 +54,24 @@ namespace SGF
 			TextProperties() : ComponentProperties() {};
 			
 			Assets::Font* font;
-			SDL_Color color;
+			SDL_Color color = { 0, 0, 0 };
 			std::string text;
+		};
+
+		struct ButtonProperties : public TextProperties
+		{
+			ButtonProperties() : TextProperties() {}
+
+			SDL_Color highlightedColor = { 255, 0, 0 };
+			SDL_Color pressedColor = { 0, 0, 255 };
+			std::function<void()> onClick;
 		};
 
 		typedef std::unique_ptr<UIComponent> UIComponentPtr;
 		typedef std::unique_ptr<Text> TextPtr;
+		
+		
+		typedef std::function<void()> ButtonAction;
 	}
 }
 

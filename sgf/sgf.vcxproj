@@ -28,6 +28,7 @@
     <ClInclude Include="src\SGF\States\StateStack.h" />
     <ClInclude Include="src\SGF\States\Structures.h" />
     <ClInclude Include="src\SGF\Structures.h" />
+    <ClInclude Include="src\SGF\UI\Button.h" />
     <ClInclude Include="src\SGF\UI\Canvas.h" />
     <ClInclude Include="src\SGF\UI\Structures.h" />
     <ClInclude Include="src\SGF\UI\Text.h" />
@@ -47,6 +48,7 @@
     <ClCompile Include="src\SGF\EntitySystem\Sprite.cpp" />
     <ClCompile Include="src\SGF\States\AbstractState.cpp" />
     <ClCompile Include="src\SGF\States\StateStack.cpp" />
+    <ClCompile Include="src\SGF\UI\Button.cpp" />
     <ClCompile Include="src\SGF\UI\Canvas.cpp" />
     <ClCompile Include="src\SGF\UI\Text.cpp" />
     <ClCompile Include="src\SGF\UI\UIComponent.cpp" />

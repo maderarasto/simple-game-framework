@@ -17,6 +17,7 @@ public:
 		m_StateStack->RegisterState<States::SplashScreen>("SplashScreen");
 		m_StateStack->RegisterState<States::GameState>("GameState");
 		m_FontAssets->Load("assets/fonts/Roboto-Regular.ttf", "ROBOTO_REGULAR_10", 12);
+		m_FontAssets->Load("assets/fonts/Roboto-Regular.ttf", "ROBOTO_REGULAR_24", 24);
 		m_FontAssets->Load("assets/fonts/Roboto-Regular.ttf", "ROBOTO_REGULAR_48", 48);
 		m_ImageAssets->Load("assets/images/player.png", "PLAYER");
 

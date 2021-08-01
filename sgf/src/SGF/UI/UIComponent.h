@@ -13,7 +13,7 @@ namespace SGF::UI
 
 		inline SDL_Rect GetBorder() const { return m_Border; };
 
-		void SetAnchorToCanvas(Canvas& canvas, Anchor anchor);
+		virtual void SetAnchorToCanvas(Canvas& canvas, Anchor anchor);
 
 		Vector2i GetPosition() const;
 		void SetPosition(int x, int y);

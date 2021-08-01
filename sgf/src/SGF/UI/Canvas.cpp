@@ -2,6 +2,7 @@
 #include "Canvas.h"
 
 #include "UIComponent.h"
+#include "Button.h"
 
 #include "SGF/Assets/Asset.h"
 
@@ -42,13 +43,27 @@ void Canvas::RemoveComponentAt(Uint32 index)
 
 void Canvas::HandleEvent(SDL_Event& event)
 {
-
+	for (UIComponentPtr& component : m_Components)
+	{
+		if (dynamic_cast<Button*>(component.get()))
+		{
+			Button* button = static_cast<Button*>(component.get());
+			button->HandleEvent(event);
+		}
+	}
 }
 
 
 void Canvas::Update(double deltaTime)
 {
-
+	for (UIComponentPtr& component : m_Components)
+	{
+		if (dynamic_cast<Button*>(component.get()))
+		{
+			Button* button = static_cast<Button*>(component.get());
+			button->Update(deltaTime);
+		}
+	}
 }
 
 
