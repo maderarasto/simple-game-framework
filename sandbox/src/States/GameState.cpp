@@ -3,6 +3,7 @@
 
 #include "SGF/Assets/Asset.h"
 #include "SGF/Assets/AssetManager.h"
+#include "SGF/UI/Canvas.h"
 
 using namespace States;
 
@@ -14,7 +15,9 @@ GameState::GameState(SGF::States::StateStack& stack, SGF::States::Context contex
 	SGF::Assets::Font& font = context.fontAssets->Get("ROBOTO_REGULAR_10");
 
 	m_Mob = std::make_unique<SGF::EntitySystem::Mob>(Vector2f(480, 648), Vector2f(64, 64), image);
-	m_Text = std::make_unique<SGF::UI::Text>(Vector2i(50, 50), font, "Simple Game Framework");
+
+	SGF::UI::TextPtr text = std::make_unique<SGF::UI::Text>(Vector2i(512, 384), font, "Simple Game Framework");
+	text->SetColor({ 255, 255, 255 });
 }
 
 
@@ -43,9 +46,5 @@ void GameState::Render()
 {
 	SDL_Renderer* renderer = GetContext().renderer;
 
-	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-	SDL_RenderClear(renderer);
-
-	m_Mob->Render(renderer);
-	m_Text->Render(renderer);
+	m_Canvas->Render(renderer);
 }

@@ -11,8 +11,10 @@ namespace SGF
 
 	namespace UI
 	{
+		class UIComponent;
 		class Text;
 
+		typedef std::unique_ptr<UIComponent> UIComponentPtr;
 		typedef std::unique_ptr<Text> TextPtr;
 	}
 }

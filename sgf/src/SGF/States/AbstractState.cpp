@@ -2,6 +2,8 @@
 #include "AbstractState.h"
 #include "StateStack.h"
 
+#include "SGF/UI/Canvas.h"
+
 using namespace SGF::States;
 
 
@@ -9,7 +11,7 @@ AbstractState::AbstractState(StateStack& stack, Context context) :
 	m_Stack(&stack),
 	m_Context(context)
 {
-
+	m_Canvas = std::make_unique<UI::Canvas>(1024, 768);
 }
 
 
