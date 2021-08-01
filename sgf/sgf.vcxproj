@@ -28,6 +28,10 @@
     <ClInclude Include="src\SGF\States\StateStack.h" />
     <ClInclude Include="src\SGF\States\Structures.h" />
     <ClInclude Include="src\SGF\Structures.h" />
+    <ClInclude Include="src\SGF\UI\Canvas.h" />
+    <ClInclude Include="src\SGF\UI\Structures.h" />
+    <ClInclude Include="src\SGF\UI\Text.h" />
+    <ClInclude Include="src\SGF\UI\UIComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\sgfpch.cpp">
@@ -43,9 +47,9 @@
     <ClCompile Include="src\SGF\EntitySystem\Sprite.cpp" />
     <ClCompile Include="src\SGF\States\AbstractState.cpp" />
     <ClCompile Include="src\SGF\States\StateStack.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="Roboto-Regular.ttf" />
+    <ClCompile Include="src\SGF\UI\Canvas.cpp" />
+    <ClCompile Include="src\SGF\UI\Text.cpp" />
+    <ClCompile Include="src\SGF\UI\UIComponent.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

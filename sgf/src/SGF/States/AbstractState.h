@@ -13,6 +13,9 @@ namespace SGF::States
 		AbstractState(StateStack& stack, Context context);
 		virtual ~AbstractState();
 
+		AbstractState(const AbstractState&) = delete;
+		AbstractState& operator=(const AbstractState&) = delete;
+
 		inline Context GetContext() { return m_Context; }
 
 		virtual bool HandleEvent(SDL_Event& event) = 0;
@@ -22,6 +25,9 @@ namespace SGF::States
 		void RequestPushState(const std::string& stateName);
 		void RequestPopState();
 		void RequestClearStates();
+
+	protected:
+		std::unique_ptr<UI::Canvas> m_Canvas;
 
 	private:
 		StateStack* m_Stack;
