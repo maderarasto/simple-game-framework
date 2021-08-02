@@ -33,8 +33,21 @@ Button::~Button()
 void Button::SetAnchorToCanvas(Canvas& canvas, Anchor anchor)
 {
 	UIComponent::SetAnchorToCanvas(canvas, anchor);
+	m_Text->SetPosition(GetPosition());
+}
 
-	m_Text->SetPosition(GetBorder().x, GetBorder().y);
+
+void Button::SetPosition(Vector2i position)
+{
+	UIComponent::SetPosition(position);
+	m_Text->SetPosition(position);
+}
+
+
+void Button::SetPosition(int x, int y)
+{
+	UIComponent::SetPosition(x, y);
+	m_Text->SetPosition(x, y);
 }
 
 

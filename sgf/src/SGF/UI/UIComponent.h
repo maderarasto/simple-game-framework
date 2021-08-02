@@ -16,18 +16,18 @@ namespace SGF::UI
 		virtual void SetAnchorToCanvas(Canvas& canvas, Anchor anchor);
 
 		Vector2i GetPosition() const;
-		void SetPosition(int x, int y);
-		void SetPosition(Vector2i position);
+		virtual void SetPosition(int x, int y);
+		virtual void SetPosition(Vector2i position);
 
 		Vector2i GetSize() const;
-		void SetSize(int w, int h);
-		void SetSize(Vector2i size);
+		virtual void SetSize(int w, int h);
+		virtual void SetSize(Vector2i size);
 
 		virtual void Render(SDL_Renderer* renderer) = 0;
 
 	private:
-		void _ResolveHorizontalAnchor();
-		void _ResolveVerticalAnchor();
+		void _ResolvePositionX();
+		void _ResolvePositionY();
 		void _UpdateBorder();
 
 	private:

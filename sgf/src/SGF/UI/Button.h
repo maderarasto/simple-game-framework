@@ -13,7 +13,10 @@ namespace SGF::UI
 		Button(const ComponentProperties* properties);
 		~Button();
 
-		virtual void SetAnchorToCanvas(Canvas& canvas, Anchor anchor) override;
+		void SetAnchorToCanvas(Canvas& canvas, Anchor anchor) override;
+
+		void SetPosition(Vector2i position) override;
+		void SetPosition(int x, int y) override;
 
 		SDL_Color GetColor() const;
 		void SetColor(SDL_Color color);
