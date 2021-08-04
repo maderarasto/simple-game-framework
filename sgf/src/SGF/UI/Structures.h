@@ -24,7 +24,7 @@ namespace SGF
 
 		enum class ButtonState
 		{
-			Idle, Highlighted, Pressed
+			Idle, Highlighted, Pressed, Active
 		};
 
 		struct Anchor
@@ -39,6 +39,12 @@ namespace SGF
 			Alignment horizontal;
 			Alignment vertical;
 			Vector2i indent;
+		};
+
+		struct MenuItem
+		{
+			std::string text;
+			std::function<void()> action;
 		};
 
 		struct ComponentProperties
@@ -62,13 +68,25 @@ namespace SGF
 		{
 			ButtonProperties() : TextProperties() {}
 
-			SDL_Color highlightedColor = { 255, 0, 0 };
+			SDL_Color highlightColor = { 255, 0, 0 };
 			SDL_Color pressedColor = { 0, 0, 255 };
 			std::function<void()> onClick;
 		};
 
+		struct MenuProperties : public ComponentProperties
+		{
+			MenuProperties() : ComponentProperties() {}
+
+			Assets::Font* font;
+			SDL_Color color = { 0, 0, 0 };
+			SDL_Color highlightColor = { 255, 0, 0 };
+			SDL_Color pressedColor = { 0, 0, 255 };
+			std::vector<MenuItem> items;
+		};
+
 		typedef std::unique_ptr<UIComponent> UIComponentPtr;
 		typedef std::unique_ptr<Text> TextPtr;
+		typedef std::unique_ptr<Button> ButtonPtr;
 		
 		
 		typedef std::function<void()> ButtonAction;

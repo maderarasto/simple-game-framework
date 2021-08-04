@@ -9,7 +9,8 @@ using namespace SGF::UI;
 
 Button::Button(const ComponentProperties* properties) :
 	UIComponent(properties),
-	m_State(ButtonState::Idle)
+	m_State(ButtonState::Idle),
+	m_Active(false)
 {
 	auto props = static_cast<const ButtonProperties*>(properties);
 
@@ -17,8 +18,9 @@ Button::Button(const ComponentProperties* properties) :
 	m_OnClick = props->onClick;
 	
 	m_StateColors[ButtonState::Idle] = props->color;
-	m_StateColors[ButtonState::Highlighted] = props->highlightedColor;
+	m_StateColors[ButtonState::Highlighted] = props->highlightColor;
 	m_StateColors[ButtonState::Pressed] = props->pressedColor;
+	m_StateColors[ButtonState::Active] = props->highlightColor;
 
 	SetSize(m_Text->GetSize());
 }
@@ -99,6 +101,18 @@ void Button::SetText(std::string text)
 }
 
 
+bool Button::IsActive() const
+{
+	return m_Active;
+}
+
+
+void Button::SetActive(bool active)
+{
+	m_Active = active;
+}
+
+
 void Button::SetOnClick(ButtonAction onClick)
 {
 	m_OnClick = onClick;
@@ -107,6 +121,7 @@ void Button::SetOnClick(ButtonAction onClick)
 
 void Button::HandleEvent(SDL_Event& event)
 {
+	
 	if (event.type == SDL_MOUSEBUTTONDOWN)
 	{
 		if (_ResolveClick(event.button) && m_OnClick != NULL)
@@ -124,7 +139,7 @@ void Button::HandleEvent(SDL_Event& event)
 	}
 	else
 	{
-		m_State = ButtonState::Idle;
+		m_State = m_Active ? ButtonState::Active : ButtonState::Idle;
 	}
 
 }

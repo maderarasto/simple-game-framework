@@ -81,6 +81,9 @@
     <ClInclude Include="src\SGF\UI\Button.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\SGF\UI\Menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\SGF\Application.cpp">
@@ -123,6 +126,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\SGF\UI\Button.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SGF\UI\Menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

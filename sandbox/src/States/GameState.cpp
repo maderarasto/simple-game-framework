@@ -25,20 +25,23 @@ GameState::GameState(SGF::States::StateStack& stack, SGF::States::Context contex
 		return props;
 	}();
 
-	auto buttonProps = [&]()
+	auto menuProps = [&]()
 	{
-		SGF::UI::ButtonProperties props;
+		SGF::UI::MenuProperties props;
 
+		props.position = Vector2i(300, 300);
 		props.font = &context.fontAssets->Get("ROBOTO_REGULAR_24");
-		props.text = "Button";
-		props.onClick = [&]() {};
+		props.items = {
+			{ "Start Game", [&]() {} },
+			{ "Options", [&]() {} },
+			{ "Quit", [&]() {} }
+		};
 
 		return props;
 	}();
 
-
 	m_Canvas->AddComponent<SGF::UI::Text>(&textProperties, SGF::UI::Anchor(SGF_Alignment::Center, SGF_Alignment::End, Vector2i(0, 15)));
-	m_Canvas->AddComponent<SGF::UI::Button>(&buttonProps, SGF::UI::Anchor(SGF_Alignment::Center, SGF_Alignment::Center));
+	m_Canvas->AddComponent<SGF::UI::Menu>(&menuProps, SGF::UI::Anchor(SGF_Alignment::Center, SGF_Alignment::Center));
 }
 
 

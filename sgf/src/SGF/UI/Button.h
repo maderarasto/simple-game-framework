@@ -30,6 +30,9 @@ namespace SGF::UI
 		std::string GetText() const;
 		void SetText(std::string text);
 
+		bool IsActive() const;
+		void SetActive(bool active);
+
 		void SetOnClick(ButtonAction onClick);
 
 		void HandleEvent(SDL_Event& event);
@@ -40,6 +43,7 @@ namespace SGF::UI
 		bool _ResolveHighlight();
 
 	private:
+		bool m_Active;
 		TextPtr m_Text;
 		ButtonState m_State;
 		ButtonAction m_OnClick;

@@ -3,6 +3,7 @@
 
 #include "UIComponent.h"
 #include "Button.h"
+#include "Menu.h"
 
 #include "SGF/Assets/Asset.h"
 
@@ -50,6 +51,12 @@ void Canvas::HandleEvent(SDL_Event& event)
 			Button* button = static_cast<Button*>(component.get());
 			button->HandleEvent(event);
 		}
+
+		if (dynamic_cast<Menu*>(component.get()))
+		{
+			Menu* menu = static_cast<Menu*>(component.get());
+			menu->HandleEvent(event);
+		}
 	}
 }
 
@@ -62,6 +69,12 @@ void Canvas::Update(double deltaTime)
 		{
 			Button* button = static_cast<Button*>(component.get());
 			button->Update(deltaTime);
+		}
+
+		if (dynamic_cast<Menu*>(component.get()))
+		{
+			Menu* menu = static_cast<Menu*>(component.get());
+			menu->Update(deltaTime);
 		}
 	}
 }
