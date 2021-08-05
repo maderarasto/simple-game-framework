@@ -119,6 +119,15 @@ void Button::SetOnClick(ButtonAction onClick)
 }
 
 
+void Button::Click()
+{
+	if (m_OnClick == NULL)
+		throw std::runtime_error("Button does not have any onClick method to execure!");
+
+	m_OnClick();
+}
+
+
 void Button::HandleEvent(SDL_Event& event)
 {
 	

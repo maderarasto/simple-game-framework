@@ -82,6 +82,7 @@ namespace SGF
 			SDL_Color highlightColor = { 255, 0, 0 };
 			SDL_Color pressedColor = { 0, 0, 255 };
 			std::vector<MenuItem> items;
+			int spacing = 10;
 		};
 
 		typedef std::unique_ptr<UIComponent> UIComponentPtr;

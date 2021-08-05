@@ -35,6 +35,8 @@ namespace SGF::UI
 
 		void SetOnClick(ButtonAction onClick);
 
+		void Click();
+
 		void HandleEvent(SDL_Event& event);
 		void Update(double deltaTime);
 		void Render(SDL_Renderer* renderer) override;

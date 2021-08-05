@@ -2,6 +2,8 @@
 #include "Menu.h"
 #include "Button.h"
 
+#include "SGF/Core/Logger.h"
+
 using namespace SGF::UI;
 
 
@@ -15,6 +17,7 @@ Menu::Menu(const ComponentProperties* properties) :
 	m_StateColors[ButtonState::Highlighted] = props->highlightColor;
 	m_StateColors[ButtonState::Active] = props->highlightColor;
 	m_StateColors[ButtonState::Pressed] = props->pressedColor;
+	m_Spacing = props->spacing;
 
 	int width = 0;
 	int height = 0;
@@ -44,7 +47,7 @@ Menu::Menu(const ComponentProperties* properties) :
 		if (buttonSize.x > width)
 			width = buttonSize.x;
 
-		height += buttonSize.y + 10;
+		height += buttonSize.y + m_Spacing;
 
 		m_Buttons.push_back(std::move(button));
 	}
@@ -118,6 +121,21 @@ void Menu::SetPressedColor(SDL_Color color)
 
 void Menu::HandleEvent(SDL_Event& event)
 {
+	if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_UP)
+	{
+		m_SelectedItem = (m_SelectedItem - 1) >= 0 ? m_SelectedItem - 1 : m_Buttons.size() - 1;
+	}
+	else if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_DOWN)
+	{
+		m_SelectedItem = ++m_SelectedItem % m_Buttons.size();
+	}
+	else if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_RETURN)
+	{
+		m_Buttons[m_SelectedItem]->Click();
+	}
+
+	_UpdateButtonsState();
+	
 	for (ButtonPtr& button : m_Buttons)
 	{
 		button->HandleEvent(event);
@@ -149,6 +167,17 @@ void Menu::_UpdateButtonsPosition()
 
 	for (int i = 0; i < m_Buttons.size(); i++)
 	{
-		m_Buttons[i]->SetPosition(position.x, position.y + i * (m_Buttons[i]->GetSize().y + 10));
+		m_Buttons[i]->SetPosition(position.x, position.y + i * (m_Buttons[i]->GetSize().y + m_Spacing));
 	}
+}
+
+
+void Menu::_UpdateButtonsState()
+{
+	for (ButtonPtr& btn : m_Buttons)
+	{
+		btn->SetActive(false);
+	}
+	
+	m_Buttons[m_SelectedItem]->SetActive(true);
 }

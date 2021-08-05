@@ -36,11 +36,13 @@ namespace SGF::UI
 
 	private:
 		void _UpdateButtonsPosition();
+		void _UpdateButtonsState();
 
 	private:
 		std::vector<ButtonPtr> m_Buttons;
 		std::map<ButtonState, SDL_Color> m_StateColors;
 
 		int m_SelectedItem;
+		int m_Spacing;
 	};
 }

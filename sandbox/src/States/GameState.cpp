@@ -31,10 +31,11 @@ GameState::GameState(SGF::States::StateStack& stack, SGF::States::Context contex
 
 		props.position = Vector2i(300, 300);
 		props.font = &context.fontAssets->Get("ROBOTO_REGULAR_24");
+		props.spacing = 75;
 		props.items = {
 			{ "Start Game", [&]() {} },
 			{ "Options", [&]() {} },
-			{ "Quit", [&]() {} }
+			{ "Quit", [&]() { RequestClearStates(); } }
 		};
 
 		return props;
