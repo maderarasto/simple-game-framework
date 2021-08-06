@@ -3,6 +3,7 @@
 #include "Canvas.h"
 
 #include "SGF/Core/Vector2.h"
+#include "SGF/Core/Logger.h"
 
 using namespace SGF::UI;
 
@@ -29,7 +30,7 @@ void UIComponent::SetAnchorToCanvas(Canvas& canvas, Anchor anchor)
 	m_Anchor = anchor;
 
 	_UpdateBorder();
-}
+} 
 
 
 Vector2i UIComponent::GetPosition() const
@@ -40,6 +41,9 @@ Vector2i UIComponent::GetPosition() const
 
 void UIComponent::SetPosition(int x, int y)
 {
+	if (m_Canvas != NULL)
+		return CORE_LOG_ERROR("Cannot change position if the component has anchor!");
+
 	m_Position = Vector2i(x, y);
 	_UpdateBorder();
 }
@@ -47,6 +51,9 @@ void UIComponent::SetPosition(int x, int y)
 
 void UIComponent::SetPosition(Vector2i position)
 {
+	if (m_Canvas != NULL)
+		return CORE_LOG_ERROR("Cannot change position if the component has anchor!");
+	
 	m_Position = position;
 	_UpdateBorder();
 }
@@ -72,7 +79,7 @@ void UIComponent::SetSize(Vector2i size)
 }
 
 
-void UIComponent::_ResolveHorizontalAnchor()
+void UIComponent::_ResolvePositionX()
 {
 	int positionX = m_Position.x;
 
@@ -86,11 +93,12 @@ void UIComponent::_ResolveHorizontalAnchor()
 	else if (m_Anchor.horizontal == Alignment::End)
 		positionX = m_Canvas->GetWidth() - m_Anchor.indent.x - m_Size.x;
 
+	m_Position.x = positionX;
 	m_Border.x = positionX;
 }
 
 
-void UIComponent::_ResolveVerticalAnchor()
+void UIComponent::_ResolvePositionY()
 {
 	int positionY = m_Position.y;
 
@@ -104,6 +112,7 @@ void UIComponent::_ResolveVerticalAnchor()
 	else if (m_Anchor.vertical == Alignment::End)
 		positionY = m_Canvas->GetHeight() - m_Anchor.indent.y - m_Size.y;
 
+	m_Position.y = positionY;
 	m_Border.y = positionY;
 }
 
@@ -113,6 +122,6 @@ void UIComponent::_UpdateBorder()
 	m_Border.w = m_Size.x;
 	m_Border.h = m_Size.y;
 	
-	_ResolveHorizontalAnchor();
-	_ResolveVerticalAnchor();
+	_ResolvePositionX();
+	_ResolvePositionY();
 }

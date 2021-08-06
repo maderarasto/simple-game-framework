@@ -3,6 +3,8 @@
 #include "SGF/States/AbstractState.h"
 #include "SGF/EntitySystem/Mob.h"
 #include "SGF/UI/Text.h"
+#include "SGF/UI/Button.h"
+#include "SGF/UI/Menu.h"
 
 namespace States
 {
@@ -15,5 +17,7 @@ namespace States
 		bool HandleEvent(SDL_Event& event) override;
 		bool Update(double deltaTime) override;
 		void Render() override;
+
+	private:
 	};
 }
