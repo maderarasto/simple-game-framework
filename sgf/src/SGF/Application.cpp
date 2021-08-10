@@ -1,7 +1,9 @@
 #include "sgfpch.h"
 #include "Application.h"
+
 #include "SGF/Core/Logger.h"
 #include "SGF/Core/Clock.h"
+#include "SGF/Core/Keyboard.h"
 
 #include "SGF/Assets/Asset.h"
 #include "SGF/Assets/AssetManager.h"
@@ -44,9 +46,18 @@ Application::Application(AppConfig* config)
 		throw std::runtime_error("SDL renderer initialization failed!");
 	CORE_LOG_INFO("SDL renderer successfully initialized.");
 
+	m_Keyboard = std::make_unique<Core::Keyboard>();
 	m_ImageAssets = std::make_unique<ImageManager>();
 	m_FontAssets = std::make_unique<FontManager>();
-	m_StateStack = std::make_unique<States::StateStack>(States::Context(m_Renderer.get(), m_ImageAssets.get(), m_FontAssets.get()));
+
+	States::Context context = States::Context(
+		m_Renderer.get(),
+		m_Keyboard.get(),
+		m_ImageAssets.get(),
+		m_FontAssets.get()
+	);
+
+	m_StateStack = std::make_unique<States::StateStack>(context);
 
 	SetFrameRate(60.0);
 
@@ -123,6 +134,7 @@ void Application::_HandleEvents()
 
 void Application::_Update(double deltaTime)
 {
+	m_Keyboard->HandleRealtimeInput();
 	m_StateStack->Update(deltaTime);
 }
 

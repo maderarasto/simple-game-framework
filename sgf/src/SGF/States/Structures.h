@@ -17,14 +17,16 @@ namespace SGF
 
 		struct SGF_API Context
 		{
-			Context(SDL_Renderer* renderer, ImageManager* images, FontManager* fonts)
+			Context(SDL_Renderer* renderer, Core::Keyboard* keyboard, ImageManager* images, FontManager* fonts)
 			{
 				this->renderer = renderer;
+				this->keyboard = keyboard;
 				this->imageAssets = images;
 				this->fontAssets = fonts;
 			}
 
 			SDL_Renderer* renderer;
+			Core::Keyboard* keyboard;
 			ImageManager* imageAssets;
 			FontManager* fontAssets;
 		};

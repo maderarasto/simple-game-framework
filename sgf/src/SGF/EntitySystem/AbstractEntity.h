@@ -3,6 +3,8 @@
 #include "SGF/api.h"
 #include "Structures.h"
 
+#include "SGF/Core/Structures.h"
+
 
 namespace SGF::EntitySystem
 {
@@ -15,11 +17,15 @@ namespace SGF::EntitySystem
 		AbstractEntity(const AbstractEntity&) = delete;
 		AbstractEntity& operator=(const AbstractEntity&) = delete;
 
+		inline virtual std::string GetCategory() const { return "Entity"; }
+
 		Vector2f GetPosition() const;
 		void SetPosition(Vector2f position);
 
 		Vector2f GetSize() const;
 		void SetSize(Vector2f position);
+
+		void OnCommand(Core::Command& command);
 
 		virtual void Update(double deltaTime) = 0;
 		virtual void Render(SDL_Renderer* renderer);

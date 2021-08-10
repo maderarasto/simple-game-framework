@@ -1,10 +1,13 @@
 #pragma once
 
 #include "SGF/States/AbstractState.h"
-#include "SGF/EntitySystem/Mob.h"
+#include "SGF/Core/CommandQueue.h"
+#include "SGF/Core/PlayerController.h"
 #include "SGF/UI/Text.h"
 #include "SGF/UI/Button.h"
 #include "SGF/UI/Menu.h"
+
+#include "../Entities/Player.h"
 
 namespace States
 {
@@ -19,5 +22,9 @@ namespace States
 		void Render() override;
 
 	private:
+		SGF::Core::CommandQueue::Ptr m_CommandQueue;
+		SGF::Core::PlayerController::Ptr m_PlayerController;
+
+		Entities::Player::Ptr m_Player;
 	};
 }
