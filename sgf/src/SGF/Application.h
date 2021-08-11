@@ -33,8 +33,6 @@ namespace SGF
 		SDL_WindowPtr m_Window;
 		SDL_RendererPtr m_Renderer;
 
-		KeyboardPtr m_Keyboard;
-
 		bool m_Running;
 		Uint32 m_FpsCount;
 		double m_TimePerUpdate;

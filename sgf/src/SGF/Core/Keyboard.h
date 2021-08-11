@@ -8,16 +8,20 @@ namespace SGF::Core
 {
 	class SGF_API Keyboard
 	{
+	private:
+		Keyboard() {}
+		~Keyboard() {}
+
 	public:
-		Keyboard();
-		~Keyboard();
+		static bool isKeyDown(SDL_Scancode scancode);
+		static bool isKeyUp(SDL_Scancode scancode);
 
-		bool isKeyDown(SDL_Scancode scancode) const;
-		bool isKeyUp(SDL_Scancode scancode) const;
-
-		void HandleRealtimeInput();
+		static void Init();
+		static void HandleRealtimeInput();
 
 	private:
-		std::unordered_map<SDL_Scancode, KeyState> m_KeysState;
+		static std::unordered_map<SDL_Scancode, KeyState> s_KeysState;
 	};
 }
+
+#define KEYBOARD SGF::Core::Keyboard

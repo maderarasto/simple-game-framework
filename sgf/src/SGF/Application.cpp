@@ -15,6 +15,7 @@ using namespace SGF;
 Application::Application(AppConfig* config)
 {
 	Core::Logger::Init();
+	Core::Keyboard::Init();
 	
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 		throw std::runtime_error("SDL2 library initialization failed!");
@@ -46,13 +47,11 @@ Application::Application(AppConfig* config)
 		throw std::runtime_error("SDL renderer initialization failed!");
 	CORE_LOG_INFO("SDL renderer successfully initialized.");
 
-	m_Keyboard = std::make_unique<Core::Keyboard>();
 	m_ImageAssets = std::make_unique<ImageManager>();
 	m_FontAssets = std::make_unique<FontManager>();
 
 	States::Context context = States::Context(
 		m_Renderer.get(),
-		m_Keyboard.get(),
 		m_ImageAssets.get(),
 		m_FontAssets.get()
 	);
@@ -134,7 +133,7 @@ void Application::_HandleEvents()
 
 void Application::_Update(double deltaTime)
 {
-	m_Keyboard->HandleRealtimeInput();
+	KEYBOARD::HandleRealtimeInput();
 	m_StateStack->Update(deltaTime);
 }
 

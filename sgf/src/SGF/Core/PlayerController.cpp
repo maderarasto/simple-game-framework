@@ -10,8 +10,7 @@
 using namespace SGF::Core;
 
 
-PlayerController::PlayerController(Keyboard& keyboard) :
-	m_Keyboard(&keyboard)
+PlayerController::PlayerController()
 {
 	_InitKeyBindings();
 	_InitActionBindings();
@@ -29,7 +28,7 @@ void PlayerController::HandleRealtimeInput(CommandQueue& commands)
 	for (auto it = m_KeyBindings.begin(); it != m_KeyBindings.end(); ++it)
 	{
 	
-		if (m_Keyboard->isKeyDown(it->first))
+		if (KEYBOARD::isKeyDown(it->first))
 		{
 			Command command = m_ActionBindings[it->second];
 			commands.Push(command);

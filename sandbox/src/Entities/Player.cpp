@@ -1,6 +1,9 @@
 #include "sgfpch.h"
 #include "Player.h"
 
+#include "SGF/Core/Keyboard.h"
+#include "SGF/Core/Logger.h"
+
 using namespace Entities;
 
 

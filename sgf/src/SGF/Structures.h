@@ -9,11 +9,6 @@
 
 namespace SGF
 {
-	namespace Core
-	{
-		class Keyboard;
-	}
-
 	namespace Assets {
 		class Image;
 		class Font;
@@ -51,7 +46,6 @@ namespace SGF
 	typedef std::unique_ptr<SDL_Texture, SDL_Disposer> SDL_TexturePtr;
 	typedef std::unique_ptr<TTF_Font, SDL_Disposer> TTF_FontPtr;
 
-	typedef std::unique_ptr<Core::Keyboard> KeyboardPtr;
 	typedef std::unique_ptr<ImageManager> ImageManagerPtr;
 	typedef std::unique_ptr<FontManager> FontManagerPtr;
 	typedef std::unique_ptr<States::StateStack> StateStackPtr;

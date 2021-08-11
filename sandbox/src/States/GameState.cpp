@@ -13,7 +13,7 @@ GameState::GameState(SGF::States::StateStack& stack, SGF::States::Context contex
 	AbstractState(stack, context)
 {
 	m_CommandQueue = std::make_unique<SGF::Core::CommandQueue>();
-	m_PlayerController = std::make_unique<SGF::Core::PlayerController>(*context.keyboard);
+	m_PlayerController = std::make_unique<SGF::Core::PlayerController>();
 	m_Player = std::make_unique<Entities::Player>(Vector2f(480, 640), Vector2f(64, 64), context.imageAssets->Get("PLAYER"));
 }
 

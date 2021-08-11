@@ -11,7 +11,7 @@ namespace SGF::Core
 	public:
 		typedef std::unique_ptr<PlayerController> Ptr;
 
-		PlayerController(Keyboard& keyboard);
+		PlayerController();
 		~PlayerController();
 
 		void HandleRealtimeInput(CommandQueue& commands);
@@ -30,8 +30,6 @@ namespace SGF::Core
 		};
 
 	private:
-		Keyboard* m_Keyboard;
-
 		std::unordered_map<SDL_Scancode, PlayerAction> m_KeyBindings;
 		std::unordered_map<PlayerAction, Command> m_ActionBindings;
 	};
