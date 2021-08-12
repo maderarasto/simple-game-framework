@@ -18,7 +18,11 @@
     <ClInclude Include="src\SGF\Assets\Asset.h" />
     <ClInclude Include="src\SGF\Assets\AssetManager.h" />
     <ClInclude Include="src\SGF\Core\Clock.h" />
+    <ClInclude Include="src\SGF\Core\CommandQueue.h" />
+    <ClInclude Include="src\SGF\Core\Keyboard.h" />
+    <ClInclude Include="src\SGF\Core\PlayerController.h" />
     <ClInclude Include="src\SGF\Core\Logger.h" />
+    <ClInclude Include="src\SGF\Core\Structures.h" />
     <ClInclude Include="src\SGF\Core\Vector2.h" />
     <ClInclude Include="src\SGF\EntitySystem\AbstractEntity.h" />
     <ClInclude Include="src\SGF\EntitySystem\Mob.h" />
@@ -42,6 +46,9 @@
     </ClCompile>
     <ClCompile Include="src\SGF\Application.cpp" />
     <ClCompile Include="src\SGF\Assets\AssetManager.cpp" />
+    <ClCompile Include="src\SGF\Core\CommandQueue.cpp" />
+    <ClCompile Include="src\SGF\Core\Keyboard.cpp" />
+    <ClCompile Include="src\SGF\Core\PlayerController.cpp" />
     <ClCompile Include="src\SGF\Core\Logger.cpp" />
     <ClCompile Include="src\SGF\Core\Vector2.cpp" />
     <ClCompile Include="src\SGF\EntitySystem\AbstractEntity.cpp" />

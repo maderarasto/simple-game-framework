@@ -47,6 +47,15 @@ void AbstractEntity::SetSize(Vector2f size)
 }
 
 
+void AbstractEntity::OnCommand(Core::Command& command)
+{
+	if (command.category == GetCategory())
+	{
+		command.action(*this);
+	}
+}
+
+
 void AbstractEntity::Render(SDL_Renderer* renderer)
 {
 	m_Sprite->Render(renderer);

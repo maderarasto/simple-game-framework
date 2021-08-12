@@ -12,6 +12,8 @@ namespace SGF::EntitySystem
 		Mob(Vector2f position, Vector2f size, Assets::Image& image);
 		virtual ~Mob();
 
+		inline virtual std::string GetCategory() const override { return "Mob"; }
+
 		Vector2f GetVelocity() const;
 		void SetVelocity(Vector2f move);
 
