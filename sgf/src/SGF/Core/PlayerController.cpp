@@ -28,7 +28,7 @@ void PlayerController::HandleRealtimeInput(CommandQueue& commands)
 	for (auto it = m_KeyBindings.begin(); it != m_KeyBindings.end(); ++it)
 	{
 	
-		if (KEYBOARD::isKeyDown(it->first))
+		if (KEYBOARD::IsKeyDown(it->first))
 		{
 			Command command = m_ActionBindings[it->second];
 			commands.Push(command);

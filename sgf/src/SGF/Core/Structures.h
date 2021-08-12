@@ -18,14 +18,6 @@ namespace SGF
 	{
 		class Keyboard;
 		class CommandQueue;
-		
-		struct Command
-		{
-			typedef std::function<void(EntitySystem::AbstractEntity& mob)> Action;
-
-			std::string category;
-			Action action;
-		};
 
 		enum class PlayerAction
 		{
@@ -39,6 +31,20 @@ namespace SGF
 		{
 			KeyUp,
 			KeyDown
+		};
+
+		struct Key
+		{
+			KeyState state = KeyState::KeyUp;
+			bool pressed = false;
+		};
+
+		struct Command
+		{
+			typedef std::function<void(EntitySystem::AbstractEntity& mob)> Action;
+
+			std::string category;
+			Action action;
 		};
 
 		template<typename Entity, typename Callback>

@@ -13,14 +13,15 @@ namespace SGF::Core
 		~Keyboard() {}
 
 	public:
-		static bool isKeyDown(SDL_Scancode scancode);
-		static bool isKeyUp(SDL_Scancode scancode);
+		static bool IsKeyDown(SDL_Scancode scancode);
+		static bool IsKeyUp(SDL_Scancode scancode);
+		static bool IsKeyPressed(SDL_Scancode scancode);
 
 		static void Init();
 		static void HandleRealtimeInput();
 
 	private:
-		static std::unordered_map<SDL_Scancode, KeyState> s_KeysState;
+		static std::unordered_map<SDL_Scancode, Key> s_KeysState;
 	};
 }
 

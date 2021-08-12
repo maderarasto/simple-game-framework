@@ -23,4 +23,9 @@ Player::~Player()
 void Player::Update(double deltaTime)
 {
 	Mob::Update(deltaTime);
+
+	if (KEYBOARD::IsKeyPressed(SDL_SCANCODE_SPACE))
+	{
+		APP_LOG_INFO("FRANKY FIIIRE");
+	}
 }
