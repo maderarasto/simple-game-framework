@@ -20,6 +20,16 @@ Player::~Player()
 }
 
 
+void Player::OnCollision(SGF::EntitySystem::AbstractEntity& entity)
+{
+	AbstractEntity::OnCollision(entity);
+	
+	/*Vector2f velocity = this->GetVelocity() * -1;
+
+	SetVelocity(velocity);*/
+}
+
+
 void Player::Update(double deltaTime)
 {
 	Mob::Update(deltaTime);

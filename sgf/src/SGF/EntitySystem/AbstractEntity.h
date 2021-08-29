@@ -19,6 +19,9 @@ namespace SGF::EntitySystem
 
 		inline virtual std::string GetCategory() const { return "Entity"; }
 
+		Collider* GetCollider() const;
+		void SetCollider(Vector2f position, Vector2f size);
+
 		Vector2f GetPosition() const;
 		void SetPosition(Vector2f position);
 
@@ -26,6 +29,9 @@ namespace SGF::EntitySystem
 		void SetSize(Vector2f position);
 
 		void OnCommand(Core::Command& command);
+		virtual void OnCollision(AbstractEntity& other);
+		virtual void OnCollisionEnter(AbstractEntity& other);
+		virtual void OnCollisionExit(AbstractEntity& other);
 
 		virtual void Update(double deltaTime) = 0;
 		virtual void Render(SDL_Renderer* renderer);
@@ -35,5 +41,6 @@ namespace SGF::EntitySystem
 		Vector2f m_Size;
 
 		SpritePtr m_Sprite;
+		Collider::Ptr m_Collider;
 	};
 }

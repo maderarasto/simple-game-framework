@@ -3,6 +3,7 @@
 #include "SGF/States/AbstractState.h"
 #include "SGF/Core/CommandQueue.h"
 #include "SGF/Core/PlayerController.h"
+#include "SGF/EntitySystem/Physics.h"
 #include "SGF/UI/Text.h"
 #include "SGF/UI/Button.h"
 #include "SGF/UI/Menu.h"
@@ -24,7 +25,9 @@ namespace States
 	private:
 		SGF::Core::CommandQueue::Ptr m_CommandQueue;
 		SGF::Core::PlayerController::Ptr m_PlayerController;
+		SGF::EntitySystem::Physics::Ptr m_Physics;
 
-		Entities::Player::Ptr m_Player;
+		std::vector<SGF::EntitySystem::AbstractEntityPtr> m_Entities;
+		Entities::Player* m_Player;
 	};
 }

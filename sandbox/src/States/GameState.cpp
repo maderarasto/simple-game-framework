@@ -6,6 +6,8 @@
 #include "SGF/UI/Canvas.h"
 #include "SGF/UI/Structures.h"
 
+#include "SGF/EntitySystem/Mob.h"
+
 using namespace States;
 
 
@@ -14,7 +16,17 @@ GameState::GameState(SGF::States::StateStack& stack, SGF::States::Context contex
 {
 	m_CommandQueue = std::make_unique<SGF::Core::CommandQueue>();
 	m_PlayerController = std::make_unique<SGF::Core::PlayerController>();
-	m_Player = std::make_unique<Entities::Player>(Vector2f(480, 640), Vector2f(64, 64), context.imageAssets->Get("PLAYER"));
+	m_Physics = std::make_unique<SGF::EntitySystem::Physics>(m_Entities);
+
+	auto mob1 = std::make_unique<SGF::EntitySystem::Mob>(Vector2f(480, 64), Vector2f(64, 64), context.imageAssets->Get("PLAYER"));
+	auto player = std::make_unique<Entities::Player>(Vector2f(480, 640), Vector2f(64, 64), context.imageAssets->Get("PLAYER"));
+
+	mob1->SetCollider(mob1->GetPosition(), mob1->GetSize());
+	player->SetCollider(player->GetPosition(), player->GetSize());
+
+	m_Player = player.get();
+	m_Entities.push_back(std::move(mob1));
+	m_Entities.push_back(std::move(player));
 }
 
 
@@ -43,7 +55,12 @@ bool GameState::Update(double deltaTime)
 		m_Player->OnCommand(command);
 	}
 
-	m_Player->Update(deltaTime);
+	m_Physics->HandleCollisions();
+
+	for (auto& entity : m_Entities)
+	{
+		entity->Update(deltaTime);
+	}
 
 	return true;
 }
@@ -56,7 +73,10 @@ void GameState::Render()
 	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 	SDL_RenderClear(renderer);
 
-	m_Player->Render(renderer);
+	for (auto& entity : m_Entities)
+	{
+		entity->Render(renderer);
+	}
 
 	m_Canvas->Render(renderer);
 }

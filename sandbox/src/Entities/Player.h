@@ -16,6 +16,8 @@ namespace Entities
 
 		virtual inline std::string GetCategory() const override { return "Player"; }
 
+		virtual void OnCollision(SGF::EntitySystem::AbstractEntity& entity) override;
+
 		virtual void Update(double deltaTime) override;
 	};
 }
