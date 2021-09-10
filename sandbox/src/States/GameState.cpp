@@ -54,9 +54,9 @@ bool GameState::Update(double deltaTime)
 		SGF::Core::Command command = m_CommandQueue->Pop();
 		m_Player->OnCommand(command);
 	}
-
+	
 	m_Physics->HandleCollisions();
-
+	
 	for (auto& entity : m_Entities)
 	{
 		entity->Update(deltaTime);

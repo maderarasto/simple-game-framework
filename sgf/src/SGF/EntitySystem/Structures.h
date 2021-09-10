@@ -56,6 +56,17 @@ namespace SGF
 			AbstractEntity* target;
 		};
 
+		struct EntityState {
+			AbstractEntity* entity;
+			Vector2f oldPosition;
+		};
+
+		enum class CollisionSide
+		{
+			None = 0,
+			Top, Right, Bottom, Left
+		};
+
 		typedef std::unique_ptr<AbstractEntity> AbstractEntityPtr;
 		typedef std::unique_ptr<Mob> MobPtr;
 		typedef std::unique_ptr<Sprite> SpritePtr;

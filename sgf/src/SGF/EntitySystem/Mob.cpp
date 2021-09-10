@@ -2,6 +2,7 @@
 #include "Mob.h"
 
 #include "SGF/Assets/Asset.h"
+#include "SGF/Core/Logger.h"
 
 using namespace SGF::EntitySystem;
 
@@ -28,6 +29,8 @@ Vector2f Mob::GetVelocity() const
 void Mob::SetVelocity(Vector2f velocity)
 {
 	m_Velocity = velocity;
+	//void* ptr = this;
+	//CORE_LOG_TRACE("Address: {}, Velocity: x={}, y={}", ptr, velocity.x, velocity.y);
 }
 
 
