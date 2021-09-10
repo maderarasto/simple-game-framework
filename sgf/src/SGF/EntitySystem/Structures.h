@@ -11,6 +11,38 @@ namespace SGF
 		class Mob;
 		class Sprite;
 
+		struct ColliderBox
+		{
+			ColliderBox()
+			{
+				top = 0;
+				left = 0;
+				bottom = 0;
+				right = 0;
+			}
+
+			ColliderBox(int x, int y, int width, int height)
+			{
+				top = y;
+				left = x;
+				bottom = y + height - 1;
+				right = x + width - 1;
+			}
+
+			SDL_Rect ToRect()
+			{
+				return {
+					left, 
+					top, 
+					right - left + 1, 
+					bottom - top + 1
+				};
+			}
+
+			int top, bottom;
+			int left, right;
+		};
+
 		struct Collider
 		{
 			typedef std::unique_ptr<Collider> Ptr;
@@ -29,16 +61,9 @@ namespace SGF
 
 			}
 			
-			SDL_Rect GetBounds() const
+			ColliderBox GetColliderBox()
 			{
-				SDL_Rect bounds;
-
-				bounds.x = static_cast<int>(position.x);
-				bounds.y = static_cast<int>(position.y);
-				bounds.w = static_cast<int>(size.x);
-				bounds.h = static_cast<int>(size.y);
-
-				return bounds;
+				return ColliderBox(position.x, position.y, size.x, size.y);
 			}
 
 			Vector2f position;

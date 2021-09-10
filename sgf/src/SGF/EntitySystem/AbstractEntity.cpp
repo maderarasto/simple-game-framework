@@ -101,7 +101,7 @@ void AbstractEntity::Render(SDL_Renderer* renderer)
 
 	if (m_Collider != NULL)
 	{
-		SDL_Rect colliderBounds = m_Collider->GetBounds();
+		SDL_Rect colliderBounds = m_Collider->GetColliderBox().ToRect();
 		
 		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
 		SDL_RenderDrawRect(renderer, &colliderBounds);
