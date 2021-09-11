@@ -20,6 +20,7 @@ public:
 		m_FontAssets->Load("assets/fonts/Roboto-Regular.ttf", "ROBOTO_REGULAR_24", 24);
 		m_FontAssets->Load("assets/fonts/Roboto-Regular.ttf", "ROBOTO_REGULAR_48", 48);
 		m_ImageAssets->Load("assets/images/player.png", "PLAYER");
+		m_ImageAssets->Load("assets/images/enemy_tank_back.png", "ENEMY_BACK");
 
 		m_StateStack->Push("SplashScreen");
 	}

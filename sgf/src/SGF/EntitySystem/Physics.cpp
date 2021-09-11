@@ -38,12 +38,14 @@ void Physics::HandleCollisions()
 				m_Collisions.push_back({ entityA.get(), entityB.get() });
 
 				_HandleBasicCollision(*entityA, *entityB);
+				_HandleBasicCollision(*entityB, *entityA);
 				entityA->OnCollisionEnter(*entityB);
 				entityB->OnCollisionEnter(*entityA);
 			}
 			else if (collided && iterator != m_Collisions.end())
 			{
 				_HandleBasicCollision(*entityA, *entityB);
+				_HandleBasicCollision(*entityB, *entityA);
 				entityA->OnCollision(*entityB);
 				entityB->OnCollision(*entityA);
 			}
@@ -110,12 +112,12 @@ void Physics::_HandleBasicCollision(AbstractEntity& entityA, AbstractEntity& ent
 	ColliderBox mobCollider = mobEntity->GetCollider()->GetColliderBox();
 	ColliderBox entityCollider = entityB.GetCollider()->GetColliderBox();
 
-	if (mobCollider.top > entityCollider.bottom || mobCollider.bottom < entityCollider.top)
+	if (mobCollider.top >= entityCollider.bottom || mobCollider.bottom <= entityCollider.top)
 	{
 		velocity.y = 0;
 	}
 
-	if (mobCollider.left > entityCollider.right || mobCollider.right < entityCollider.left)
+	if (mobCollider.left >= entityCollider.right || mobCollider.right <= entityCollider.left)
 	{
 		velocity.x = 0;
 	}

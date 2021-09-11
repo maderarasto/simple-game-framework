@@ -6,7 +6,7 @@
 #include "SGF/UI/Canvas.h"
 #include "SGF/UI/Structures.h"
 
-#include "SGF/EntitySystem/Mob.h"
+#include "../Entities/Enemy.h"
 
 using namespace States;
 
@@ -18,7 +18,7 @@ GameState::GameState(SGF::States::StateStack& stack, SGF::States::Context contex
 	m_PlayerController = std::make_unique<SGF::Core::PlayerController>();
 	m_Physics = std::make_unique<SGF::EntitySystem::Physics>(m_Entities);
 
-	auto mob1 = std::make_unique<SGF::EntitySystem::Mob>(Vector2f(480, 64), Vector2f(64, 64), context.imageAssets->Get("PLAYER"));
+	auto mob1 = std::make_unique<Entities::Enemy>(Vector2f(480, 64), Vector2f(64, 64), context.imageAssets->Get("ENEMY_BACK"));
 	auto player = std::make_unique<Entities::Player>(Vector2f(480, 640), Vector2f(64, 64), context.imageAssets->Get("PLAYER"));
 
 	mob1->SetCollider(mob1->GetPosition(), mob1->GetSize());
@@ -55,11 +55,21 @@ bool GameState::Update(double deltaTime)
 		m_Player->OnCommand(command);
 	}
 	
-	m_Physics->HandleCollisions();
-	
 	for (auto& entity : m_Entities)
 	{
 		entity->Update(deltaTime);
+	}
+
+	m_Physics->HandleCollisions();
+
+	for (auto& entity : m_Entities)
+	{
+		if (dynamic_cast<SGF::EntitySystem::Mob*>(entity.get()) == nullptr)
+			continue;
+
+		auto mobEntity = static_cast<SGF::EntitySystem::Mob*>(entity.get());
+
+		mobEntity->FixedUpdate(deltaTime);
 	}
 
 	return true;
