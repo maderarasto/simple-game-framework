@@ -17,7 +17,8 @@ namespace SGF::EntitySystem
 		Vector2f GetVelocity() const;
 		void SetVelocity(Vector2f move);
 
-		void Update(double deltaTime) override;
+		virtual void Update(double deltaTime) override;
+		void FixedUpdate(double deltaTime);
 
 	private:
 		Vector2f m_Velocity;

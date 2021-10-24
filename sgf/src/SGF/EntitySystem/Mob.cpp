@@ -2,6 +2,7 @@
 #include "Mob.h"
 
 #include "SGF/Assets/Asset.h"
+#include "SGF/Core/Logger.h"
 
 using namespace SGF::EntitySystem;
 
@@ -32,6 +33,11 @@ void Mob::SetVelocity(Vector2f velocity)
 
 
 void Mob::Update(double deltaTime)
+{
+}
+
+
+void Mob::FixedUpdate(double deltaTime)
 {
 	Vector2f position = GetPosition() + m_Velocity;
 
