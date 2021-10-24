@@ -19,6 +19,9 @@ namespace SGF::EntitySystem
 
 		inline virtual std::string GetCategory() const { return "Entity"; }
 
+		std::string GetLayer() const;
+		void SetLayer(const std::string& layerName);
+
 		Collider* GetCollider() const;
 		void SetCollider(Vector2f position, Vector2f size);
 
@@ -39,6 +42,7 @@ namespace SGF::EntitySystem
 	private:
 		Vector2f m_Position;
 		Vector2f m_Size;
+		std::string m_Layer;
 
 		SpritePtr m_Sprite;
 		Collider::Ptr m_Collider;

@@ -14,12 +14,23 @@ AbstractEntity::AbstractEntity(Vector2f position, Vector2f size, Assets::Image& 
 {
 	m_Sprite = std::make_unique<Sprite>(*this, image);
 	m_Collider = NULL;
+	m_Layer = "Entity";
 }
 
 
 AbstractEntity::~AbstractEntity()
 {
 
+}
+
+std::string AbstractEntity::GetLayer() const
+{
+	return m_Layer;
+}
+
+void AbstractEntity::SetLayer(const std::string& layerName)
+{
+	m_Layer = layerName;
 }
 
 

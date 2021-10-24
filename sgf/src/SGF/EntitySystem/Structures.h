@@ -81,6 +81,22 @@ namespace SGF
 			AbstractEntity* target;
 		};
 
+		struct CollisionLayer
+		{
+			typedef std::unique_ptr<CollisionLayer> Ptr;
+			
+			CollisionLayer(const std::string& layerName, const std::string& oppositeLayerName, bool collide = true)
+			{
+				this->originalLayer = layerName;
+				this->oppositeLayer = oppositeLayerName;
+				this->canCollide = collide;
+			}
+
+			std::string originalLayer;
+			std::string oppositeLayer;
+			bool canCollide;
+		};
+
 		struct EntityState {
 			AbstractEntity* entity;
 			Vector2f oldPosition;

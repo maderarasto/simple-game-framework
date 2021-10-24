@@ -12,12 +12,68 @@ using namespace SGF::EntitySystem;
 Physics::Physics(std::vector<AbstractEntityPtr>& entities) :
 	m_Entities(&entities)
 {
+	AddCollisionLayer("Entity");
 }
 
 
 Physics::~Physics()
 {
 
+}
+
+
+void Physics::AddCollisionLayer(const std::string& layerName)
+{
+	if (std::find(m_Layers.begin(), m_Layers.end(), layerName) != m_Layers.end())
+		throw std::runtime_error("Layer with name " + layerName + " already exists!");
+
+	m_Layers.push_back(layerName);
+
+	for (auto& layer : m_Layers)
+	{
+		m_LayerRelations.push_back(CollisionLayer(layerName, layer));
+	}
+}
+
+
+void Physics::RemoveCollisionLayer(const std::string& layerName)
+{
+	auto layerIt = std::find(m_Layers.begin(), m_Layers.end(), layerName);
+	
+	if (layerIt == m_Layers.end())
+		throw std::runtime_error("Layer with name " + layerName + " doesn't exist!");
+	
+	std::vector<std::vector<CollisionLayer>::iterator> iteratorsToDelete;
+
+	for (auto it = m_LayerRelations.begin(); it != m_LayerRelations.end(); ++it)
+	{
+		if (it->originalLayer == layerName || it->oppositeLayer == layerName)
+		{
+			iteratorsToDelete.push_back(it);
+		}
+	}
+
+	m_Layers.erase(layerIt);
+
+	for (auto& it : iteratorsToDelete)
+	{
+		m_LayerRelations.erase(it);
+	}
+}
+
+
+void Physics::SetLayerRelation(const std::string& layerName, const std::string& otherLayerName, bool value)
+{
+	auto it = std::find_if(m_LayerRelations.begin(), m_LayerRelations.end(), [&](const CollisionLayer& layer)
+		{
+			return layer.originalLayer == layerName && layer.oppositeLayer == otherLayerName;
+		}
+	);
+
+	if (it == m_LayerRelations.end())
+		throw std::runtime_error("Layer relation with layers " + layerName + " - " + otherLayerName + " doesn't exist!");
+
+	it->canCollide = value;
 }
 
 
@@ -94,10 +150,29 @@ bool Physics::_CheckCollision(const AbstractEntity& entityA, const AbstractEntit
 		SDL_Rect rectEntityA = colliderEntityA.ToRect();
 		SDL_Rect rectEntityB = colliderEntityB.ToRect();
 
-		result = SDL_HasIntersection(&rectEntityA, &rectEntityB) == SDL_TRUE;
+		result = _CheckCollisionLayers(entityA, entityB) && SDL_HasIntersection(&rectEntityA, &rectEntityB) == SDL_TRUE;
 	}
 
 	return result;
+}
+
+bool Physics::_CheckCollisionLayers(const AbstractEntity& entityA, const AbstractEntity& entityB) const
+{
+	const CollisionLayer* result = NULL;
+	
+	for (auto& layerRelation : m_LayerRelations)
+	{
+		bool layerCombination = layerRelation.originalLayer == entityA.GetLayer() && layerRelation.oppositeLayer == entityB.GetLayer();
+		bool otherCombination = layerRelation.originalLayer == entityB.GetLayer() && layerRelation.oppositeLayer == entityA.GetLayer();
+
+		if (layerCombination || otherCombination)
+		{
+			result = &layerRelation;
+			break;
+		}
+	}
+
+	return result ? result->canCollide : false;
 }
 
 

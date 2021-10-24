@@ -17,12 +17,16 @@ GameState::GameState(SGF::States::StateStack& stack, SGF::States::Context contex
 	m_CommandQueue = std::make_unique<SGF::Core::CommandQueue>();
 	m_PlayerController = std::make_unique<SGF::Core::PlayerController>();
 	m_Physics = std::make_unique<SGF::EntitySystem::Physics>(m_Entities);
+	
+	m_Physics->AddCollisionLayer("Player");
+	//m_Physics->SetLayerRelation("Player", "Entity", false);
 
 	auto mob1 = std::make_unique<Entities::Enemy>(Vector2f(480, 64), Vector2f(64, 64), context.imageAssets->Get("ENEMY_BACK"));
 	auto player = std::make_unique<Entities::Player>(Vector2f(480, 640), Vector2f(64, 64), context.imageAssets->Get("PLAYER"));
 
 	mob1->SetCollider(mob1->GetPosition(), mob1->GetSize());
 	player->SetCollider(player->GetPosition(), player->GetSize());
+	player->SetLayer("Player");
 
 	m_Player = player.get();
 	m_Entities.push_back(std::move(mob1));
