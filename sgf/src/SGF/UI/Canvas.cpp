@@ -82,8 +82,8 @@ void Canvas::Update(double deltaTime)
 
 void Canvas::Render(SDL_Renderer* renderer)
 {
-	//SDL_SetRenderDrawColor(renderer, m_BackgroundColor.r, m_BackgroundColor.g, m_BackgroundColor.b, m_BackgroundColor.a);
-	//SDL_RenderFillRect(renderer, &m_Border);
+	SDL_SetRenderDrawColor(renderer, m_BackgroundColor.r, m_BackgroundColor.g, m_BackgroundColor.b, m_BackgroundColor.a);
+	SDL_RenderFillRect(renderer, &m_Border);
 
 	for (UIComponentPtr& component : m_Components)
 	{
