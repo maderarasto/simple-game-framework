@@ -7,6 +7,7 @@ namespace SGF
 	namespace Assets
 	{
 		class Font;
+		class Image;
 	}
 
 	namespace UI
@@ -83,6 +84,13 @@ namespace SGF
 			SDL_Color pressedColor = { 0, 0, 255 };
 			std::vector<MenuItem> items;
 			int spacing = 10;
+		};
+
+		struct ImageProperties : public ComponentProperties
+		{
+			ImageProperties() : ComponentProperties() {}
+
+			Assets::Image* imageSource;
 		};
 
 		typedef std::unique_ptr<UIComponent> UIComponentPtr;

@@ -75,6 +75,7 @@ AbstractStatePtr StateStack::_CreateState(const std::string& stateName)
 {
 	AbstractStatePtr statePtr = m_StateFactories[stateName]();
 	statePtr->LoadResources();
+	statePtr->OnStart();
 
 	return std::move(statePtr);
 }

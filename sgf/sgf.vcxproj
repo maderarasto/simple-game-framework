@@ -35,6 +35,7 @@
     <ClInclude Include="src\SGF\Structures.h" />
     <ClInclude Include="src\SGF\UI\Button.h" />
     <ClInclude Include="src\SGF\UI\Canvas.h" />
+    <ClInclude Include="src\SGF\UI\Image.h" />
     <ClInclude Include="src\SGF\UI\Menu.h" />
     <ClInclude Include="src\SGF\UI\Structures.h" />
     <ClInclude Include="src\SGF\UI\Text.h" />
@@ -60,6 +61,7 @@
     <ClCompile Include="src\SGF\States\StateStack.cpp" />
     <ClCompile Include="src\SGF\UI\Button.cpp" />
     <ClCompile Include="src\SGF\UI\Canvas.cpp" />
+    <ClCompile Include="src\SGF\UI\Image.cpp" />
     <ClCompile Include="src\SGF\UI\Menu.cpp" />
     <ClCompile Include="src\SGF\UI\Text.cpp" />
     <ClCompile Include="src\SGF\UI\UIComponent.cpp" />
