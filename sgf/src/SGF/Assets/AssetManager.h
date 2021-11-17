@@ -17,6 +17,8 @@ namespace SGF::Assets
 		void Load(const std::string& fileName, const std::string& key, const Parameter& parameter);
 		void Load(const std::string& fileName, const std::string& key);
 
+		void Clear();
+
 		AssetManager(const AssetManager<Resource>&) = delete;
 		const AssetManager<Resource>& operator=(const AssetManager<Resource>&) = delete;
 

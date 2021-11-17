@@ -55,11 +55,20 @@ void AssetManager<Resource>::Load(const std::string& fileName, const std::string
 		m_AssetMap.insert(std::make_pair(key, std::move(resource)));
 }
 
+
+template<class Resource>
+void AssetManager<Resource>::Clear()
+{
+	m_AssetMap.clear();
+}
+
 template SGF_API const Font& AssetManager<Font>::Get(const std::string&) const;
 template SGF_API Font& AssetManager<Font>::Get(const std::string&);
 template SGF_API void AssetManager<Font>::Load(const std::string&, const std::string&);
 template SGF_API void AssetManager<Font>::Load(const std::string&, const std::string&, const int&);
+template SGF_API void AssetManager<Font>::Clear();
 
 template SGF_API const Image& AssetManager<Image>::Get(const std::string&) const;
 template SGF_API Image& AssetManager<Image>::Get(const std::string&);
 template SGF_API void AssetManager<Image>::Load(const std::string&, const std::string&);
+template SGF_API void AssetManager<Image>::Clear();

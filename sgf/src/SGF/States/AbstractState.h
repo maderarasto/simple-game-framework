@@ -26,6 +26,8 @@ namespace SGF::States
 		void RequestPopState();
 		void RequestClearStates();
 
+		virtual void LoadResources() = 0;
+
 	protected:
 		std::unique_ptr<UI::Canvas> m_Canvas;
 

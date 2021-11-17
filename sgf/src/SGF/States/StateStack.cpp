@@ -2,6 +2,8 @@
 #include "StateStack.h"
 #include "AbstractState.h"
 
+#include "SGF/Assets/AssetManager.h"
+
 using namespace SGF::States;
 
 
@@ -71,7 +73,10 @@ void StateStack::Render()
 
 AbstractStatePtr StateStack::_CreateState(const std::string& stateName)
 {
-	return m_StateFactories[stateName]();
+	AbstractStatePtr statePtr = m_StateFactories[stateName]();
+	statePtr->LoadResources();
+
+	return std::move(statePtr);
 }
 
 
@@ -86,9 +91,13 @@ void StateStack::_ApplyPendingChanges()
 			break;
 		case StackAction::Pop:
 			m_States.pop_back();
+			m_Context.fontAssets->Clear();
+			m_Context.imageAssets->Clear();
 			break;
 		case StackAction::Clear:
 			m_States.clear();
+			m_Context.fontAssets->Clear();
+			m_Context.imageAssets->Clear();
 		}
 	}
 
