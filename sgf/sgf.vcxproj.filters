@@ -102,6 +102,9 @@
     <ClInclude Include="src\SGF\UI\Image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\SGF\UI\Properties.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\SGF\Application.cpp">

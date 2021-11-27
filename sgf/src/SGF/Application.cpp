@@ -49,11 +49,13 @@ Application::Application(AppConfig* config)
 
 	m_ImageAssets = std::make_unique<ImageManager>();
 	m_FontAssets = std::make_unique<FontManager>();
+	m_LayoutAssets = std::make_unique<LayoutManager>();
 
 	States::Context context = States::Context(
 		m_Renderer.get(),
 		m_ImageAssets.get(),
-		m_FontAssets.get()
+		m_FontAssets.get(),
+		m_LayoutAssets.get()
 	);
 
 	m_StateStack = std::make_unique<States::StateStack>(context);

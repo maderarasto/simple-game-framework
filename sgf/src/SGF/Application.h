@@ -28,6 +28,7 @@ namespace SGF
 		StateStackPtr m_StateStack;
 		ImageManagerPtr m_ImageAssets;
 		FontManagerPtr m_FontAssets;
+		LayoutManagerPtr m_LayoutAssets;
 
 	private:
 		SDL_WindowPtr m_Window;

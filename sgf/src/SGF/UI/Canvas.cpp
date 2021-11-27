@@ -36,6 +36,12 @@ void Canvas::SetBackgroundColor(SDL_Color color)
 }
 
 
+void Canvas::AddComponentsFromLayout(const SGF::Assets::Layout& layout)
+{
+
+}
+
+
 void Canvas::RemoveComponentAt(Uint32 index)
 {
 	m_Components.erase(std::next(m_Components.begin() + index));

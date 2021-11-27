@@ -17,16 +17,18 @@ namespace SGF
 
 		struct SGF_API Context
 		{
-			Context(SDL_Renderer* renderer, ImageManager* images, FontManager* fonts)
+			Context(SDL_Renderer* renderer, ImageManager* images, FontManager* fonts, LayoutManager* layouts)
 			{
 				this->renderer = renderer;
 				this->imageAssets = images;
 				this->fontAssets = fonts;
+				this->layoutAssets = layouts;
 			}
 
 			SDL_Renderer* renderer;
 			ImageManager* imageAssets;
 			FontManager* fontAssets;
+			LayoutManager* layoutAssets;
 		};
 
 		typedef std::unique_ptr<AbstractState> AbstractStatePtr;

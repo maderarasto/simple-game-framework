@@ -37,6 +37,7 @@
     <ClInclude Include="src\SGF\UI\Canvas.h" />
     <ClInclude Include="src\SGF\UI\Image.h" />
     <ClInclude Include="src\SGF\UI\Menu.h" />
+    <ClInclude Include="src\SGF\UI\Properties.h" />
     <ClInclude Include="src\SGF\UI\Structures.h" />
     <ClInclude Include="src\SGF\UI\Text.h" />
     <ClInclude Include="src\SGF\UI\UIComponent.h" />
@@ -117,7 +118,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>sgfpch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\SDL2_ttf\include;$(ProjectDir)vendor\SDL2_image\include;$(ProjectDir)vendor\SDL2\include;$(ProjectDir)vendor\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\SDL2_ttf\include;$(ProjectDir)vendor\SDL2_image\include;$(ProjectDir)vendor\SDL2\include;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\rapidxml\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
@@ -145,7 +146,7 @@ xcopy "$(ProjectDir)vendor" "$(SolutionDir)out\vendor" /e /i /y</Command>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>sgfpch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\SDL2_ttf\include;$(ProjectDir)vendor\SDL2_image\include;$(ProjectDir)vendor\SDL2\include;$(ProjectDir)vendor\spdlog\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;$(ProjectDir)vendor\SDL2_ttf\include;$(ProjectDir)vendor\SDL2_image\include;$(ProjectDir)vendor\SDL2\include;$(ProjectDir)vendor\spdlog\include;$(ProjectDir)vendor\rapidxml\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>

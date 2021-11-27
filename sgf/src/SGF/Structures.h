@@ -12,6 +12,7 @@ namespace SGF
 	namespace Assets {
 		class Image;
 		class Font;
+		class Layout;
 
 		template<class Resource>
 		class AssetManager;
@@ -39,14 +40,17 @@ namespace SGF
 
 	typedef Assets::AssetManager<Assets::Image> ImageManager;
 	typedef Assets::AssetManager<Assets::Font> FontManager;
+	typedef Assets::AssetManager<Assets::Layout> LayoutManager;
 
 	typedef std::unique_ptr<SDL_Window, SDL_Disposer> SDL_WindowPtr;
 	typedef std::unique_ptr<SDL_Renderer, SDL_Disposer> SDL_RendererPtr;
 	typedef std::unique_ptr<SDL_Surface, SDL_Disposer> SDL_SurfacePtr;
 	typedef std::unique_ptr<SDL_Texture, SDL_Disposer> SDL_TexturePtr;
 	typedef std::unique_ptr<TTF_Font, SDL_Disposer> TTF_FontPtr;
+	typedef std::unique_ptr<rapidxml::xml_document<>> XML_DocumentPtr;
 
 	typedef std::unique_ptr<ImageManager> ImageManagerPtr;
 	typedef std::unique_ptr<FontManager> FontManagerPtr;
+	typedef std::unique_ptr<LayoutManager> LayoutManagerPtr;
 	typedef std::unique_ptr<States::StateStack> StateStackPtr;
 }

@@ -3,6 +3,11 @@
 #include "SGF/api.h"
 #include "Structures.h"
 
+namespace SGF::Assets
+{
+	class Layout;
+}
+
 namespace SGF::UI
 {
 	class SGF_API Canvas
@@ -19,6 +24,8 @@ namespace SGF::UI
 
 		SDL_Color GetBackgroundColor() const;
 		void SetBackgroundColor(SDL_Color color);
+
+		void AddComponentsFromLayout(const Assets::Layout& layout);
 
 		template<typename Component>
 		void AddComponent(ComponentProperties* properties, Anchor anchor=NO_ANCHOR);

@@ -72,3 +72,8 @@ template SGF_API const Image& AssetManager<Image>::Get(const std::string&) const
 template SGF_API Image& AssetManager<Image>::Get(const std::string&);
 template SGF_API void AssetManager<Image>::Load(const std::string&, const std::string&);
 template SGF_API void AssetManager<Image>::Clear();
+
+template SGF_API const Layout& AssetManager<Layout>::Get(const std::string&) const;
+template SGF_API Layout& AssetManager<Layout>::Get(const std::string&);
+template SGF_API void AssetManager<Layout>::Load(const std::string&, const std::string&);
+template SGF_API void AssetManager<Layout>::Clear();

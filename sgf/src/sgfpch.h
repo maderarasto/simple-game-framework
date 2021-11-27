@@ -8,6 +8,11 @@
 #include <spdlog/fmt/ostr.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
 
+#include <rapidxml.hpp>
+#include <rapidxml_iterators.hpp>
+#include <rapidxml_utils.hpp>
+#include <rapidxml_print.hpp>
+
 #include <memory>
 #include <utility>
 #include <sstream>
@@ -21,4 +26,6 @@
 #include <queue>
 #include <vector>
 #include <string>
+#include <sstream>
+#include <fstream>
 #include <unordered_map>
